@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="row">
+      <% if current_user&.admin? %>
+        <% @reservations.each do |r| %>
+          <%= r.user.nom_complet %>
+          <%= r.user.email %>
+          <%= r.propriete.nom %>
+          <%= r.date_debut %>
+          <%= r.date_fin %>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

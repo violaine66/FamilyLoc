@@ -1,4 +1,17 @@
 class ReservationsController < ApplicationController
+  before_action :authenticate_user!
+
+  def index
+    @reservations = policy_scope(Reservation)
+   authorize @reservations
+  end
+
+  def show
+    @reservation = Reservation.find(params[:id])
+    @propriete = @reservation.propriete
+    authorize @reservation
+  end
+
 
   def new
     @propriete = Propriete.find(params[:propriete_id])

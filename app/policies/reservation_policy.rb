@@ -16,6 +16,7 @@ class ReservationPolicy < ApplicationPolicy
     end
   end
 
+
   def new?
     true
   end
@@ -26,5 +27,9 @@ class ReservationPolicy < ApplicationPolicy
 
   def show?
     record.user == user || user.admin?
+  end
+
+  def index?
+    user.admin? || record.user == user
   end
 end
