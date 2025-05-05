@@ -1,13 +1,13 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
     <div class="col">
       <% @proprietes.each do |p| %>
-        <%= p.nom %>
-        <%= p.adresse %>
+        <%= link_to propriete_path(p) do %>
+          <%= p.nom %>
+          <%= p.adresse %>
+        <% end %>
         <hr>
-        
       <% end %>
-
     </div>
   </div>
 </div>

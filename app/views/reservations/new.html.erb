@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= simple_form_for [@propriete, @reservation] do |f| %>
+        <%= f.input :date_debut  %>
+        <%= f.input :date_fin %>
+        <%= f.button :submit %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

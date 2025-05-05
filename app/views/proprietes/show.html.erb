@@ -1,0 +1,15 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <div class="card-propriete">
+        <%= @propriete.nom %>
+        <%= @propriete.adresse %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= link_to "Reserver", new_propriete_reservation_path(@propriete) %>
+    </div>
+  </div>
+</div>
