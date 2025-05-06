@@ -1,12 +1,16 @@
 <div class="container mt-5">
-  <div class="row">
-    <div class="col">
+  <div class="row d-flex justify-content-center">
+    <div class="col-sm-12 col-md-10 col-lg-8 mx-auto">
       <% @proprietes.each do |p| %>
-        <%= link_to propriete_path(p) do %>
-          <%= p.nom %>
-          <%= p.adresse %>
+        <%= link_to propriete_path(p), class: "text-decoration-none text-reset" do %>
+          <div class="card-propriete">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-propriete-infos">
+              <h2 class="text-decoration-none"><%= p.nom %></h2>
+              <p >  <%= p.adresse %></p>
+            </div>
+          </div>
         <% end %>
-        <hr>
       <% end %>
     </div>
   </div>

@@ -1,0 +1,37 @@
+.card-propriete {
+  overflow: hidden;
+  height: 150px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.card-propriete img {
+  height: 100%;
+  width: 200px;
+  object-fit: cover;
+}
+
+.card-propriete h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+
+}
+
+.card-propriete p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  text-decoration: none;
+}
+
+.card-propriete .card-propriete-infos {
+  padding: 16px;
+}
+
+
