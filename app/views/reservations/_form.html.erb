@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-sm-8 col-md-6 col-lg-6 mx-auto">
       <%= simple_form_for [@propriete, @reservation] do |f| %>
         <%= f.input :date_debut, as: :string, input_html: { data: { controller: "datepicker" } } %>
         <%= f.input :date_fin, as: :string, input_html: { data: { controller: "datepicker" } } %>
-        <%= f.button :submit %>
+        <%= f.button :submit, label:"Reserver" %>
       <% end %>
     </div>
   </div>
