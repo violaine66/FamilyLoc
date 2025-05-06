@@ -3,7 +3,7 @@
     <div class="col-sm-8 col-md-6 col-lg-6 mx-auto">
       <% if current_user&.admin? %>
         <% @reservations.each do |r| %>
-        <div class="card">
+        <div class="card mb-3">
           <div class="card-body">
             <p><strong>Réservation faite par <%= r.user.nom_complet %></strong></p>
             <p>Mail : <%= r.user.email %></p>
@@ -13,7 +13,6 @@
         </div>
         <% end %>
       <% end %>
-
     </div>
   </div>
 </div>
