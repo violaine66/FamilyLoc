@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<div class="container mt-5" data-controller="toggle">
   <div class="row d-flex justify-content-center">
     <div class="col-sm-10 col-md-8 col-lg-8 mx-auto">
       <div class="card-trip">
@@ -8,10 +8,10 @@
             <h2> <%= @propriete.nom %></h2>
             <p><%= @propriete.adresse %></p>
           </div>
-          <h2> <%= link_to "Reserver", new_propriete_reservation_path(@propriete) %></h2>
-
+          <button data-action="click->toggle#fire" class="btn btn-outline-primary"> Reserver</button>
         </div>
       </div>
+      <div data-toggle-target="togglableElement" class="d-none mt-5"><%= render "reservations/form", propriete: @propriete, reservation: @reservation %></div>
     </div>
   </div>
 </div>
