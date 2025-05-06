@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col">
       <%= simple_form_for [@propriete, @reservation] do |f| %>
-        <%= f.input :date_debut  %>
-        <%= f.input :date_fin %>
+        <%= f.input :date_debut, as: :string, input_html: { data: { controller: "datepicker" } } %>
+        <%= f.input :date_fin, as: :string, input_html: { data: { controller: "datepicker" } } %>
         <%= f.button :submit %>
       <% end %>
     </div>
