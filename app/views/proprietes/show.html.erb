@@ -1,15 +1,17 @@
-<div class="container mt-5">
-  <div class="row">
-    <div class="col">
-      <div class="card-propriete">
-        <%= @propriete.nom %>
-        <%= @propriete.adresse %>
+<div class="container mt-3">
+  <div class="row d-flex justify-content-center">
+    <div class="col-sm-10 col-md-8 col-lg-8 mx-auto">
+      <div class="card-trip">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h2> <%= @propriete.nom %></h2>
+            <p><%= @propriete.adresse %></p>
+          </div>
+          <h2> <%= link_to "Reserver", new_propriete_reservation_path(@propriete) %></h2>
+
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <%= link_to "Reserver", new_propriete_reservation_path(@propriete) %>
     </div>
   </div>
 </div>
