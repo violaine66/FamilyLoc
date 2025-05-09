@@ -4,7 +4,13 @@
       <% @proprietes.each do |p| %>
         <%= link_to propriete_path(p), class: "text-decoration-none text-reset" do %>
           <div class="card-propriete">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <% if p.nom == "Hendaye, appartement du haut" %>
+              <%= image_tag "jumeaux.jpg"%>
+            <% elsif p.nom == "Hendaye, appartement du bas"%>
+             <%= image_tag "jumeaux2.webp" %>
+            <% else %>
+              <%= image_tag "prechac.jpg" %>
+            <% end %>
             <div class="card-propriete-infos">
               <h2 class="text-decoration-none"><%= p.nom %></h2>
               <p >  <%= p.adresse %></p>

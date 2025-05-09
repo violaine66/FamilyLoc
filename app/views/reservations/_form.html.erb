@@ -1,11 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8 col-md-6 col-lg-6 mx-auto">
-      <%= simple_form_for [@propriete, @reservation] do |f| %>
+      <div class="form" data-controller="datepicker"
+        data-datepicker-booked-dates-value = "<%= propriete.reservations.pluck(:date_debut, :date_fin).flatten.map { |d| d.to_date.to_s }.to_json %>">
+        <%= simple_form_for [@propriete, @reservation] do |f| %>
         <%= f.input :date_debut, as: :string, input_html: { data: { controller: "datepicker" } } %>
         <%= f.input :date_fin, as: :string, input_html: { data: { controller: "datepicker" } } %>
         <%= f.button :submit, label:"Reserver" %>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
