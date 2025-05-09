@@ -37,3 +37,18 @@
   top: -20px;
   width: 40px;
 }
+
+.card-trip img {
+  width: 100%;
+  background-position: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+  object-fit: cover;
+}
+.full-width-img {
+  width: 100%;
+  height: auto; /* conserve la hauteur naturelle */
+  display: block; /* évite les petits espaces sous l’image */
+}
