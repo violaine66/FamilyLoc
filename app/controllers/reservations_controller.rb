@@ -27,7 +27,7 @@ class ReservationsController < ApplicationController
     authorize @reservation
 
     if @reservation.save
-      redirect_to propriete_path(@propriete), notice: 'La demande de réservation a été créée avec succès.'
+      redirect_to propriete_path(@propriete), notice: 'La demande de réservation a été créée avec succès et est en attente de validation.'
     else
       render "proprieres/show", status: :unprocessable_entity
     end
