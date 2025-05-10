@@ -3,18 +3,31 @@ import flatpickr from "flatpickr";
 
 // Connects to data-controller="datepicker"
 export default class extends Controller {
- static values = { bookedDates: Array }
+  static values = { bookedDates: Array }
 
   connect() {
-    const unavailableDates = this.bookedDatesValue.map(date => new Date(date)); // Transformer les dates en objets Date
+    const bookedDates = this.bookedDatesValue
+      .map(date => new Date(date))
+      .sort((a, b) => a - b); // Trier par date croissante
 
-    // Initialisation de flatpickr sur l'élément (le div parent)
+    // Créer des plages entre chaque paire de dates consécutives
+    const disabledRanges = [];
+    for (let i = 0; i < bookedDates.length - 1; i++) {
+      const start = bookedDates[i];
+      const end = bookedDates[i + 1];
+      disabledRanges.push({
+        from: start.toISOString().split('T')[0],
+        to: end.toISOString().split('T')[0],
+      });
+    }
+
+    // Initialiser flatpickr avec les plages désactivées
     flatpickr(this.element.querySelectorAll("input[type='text']"), {
-      disable: unavailableDates.map(date => date.toISOString().split('T')[0]), // Convertir les dates en "YYYY-MM-DD"
+      disable: disabledRanges,
       onDayCreate: (dObj, dStr, fp, dayElem) => {
-        const date = new Date(dayElem.dateObj);  // Créer un objet Date pour comparer les dates
-        if (unavailableDates.some(unavailableDate => unavailableDate.getTime() === date.getTime())) {
-          dayElem.classList.add("reserved"); // Ajouter la classe reserved si la date est réservée
+        const date = new Date(dayElem.dateObj);
+        if (bookedDates.some(d => d.getTime() === date.getTime())) {
+          dayElem.classList.add("reserved");
         }
       }
     });
