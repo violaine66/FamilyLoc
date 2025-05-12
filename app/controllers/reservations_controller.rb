@@ -1,10 +1,11 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_user!
 
-  def index
+ def index
     @reservations = policy_scope(Reservation)
-   authorize @reservations
-  end
+end
+
+
 
   def show
     @reservation = Reservation.find(params[:id])
