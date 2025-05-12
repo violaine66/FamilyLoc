@@ -7,4 +7,8 @@ class User < ApplicationRecord
 
 
   scope :admin, -> { where(admin: true) }
+
+  def admin?
+    self[:admin] == true
+  end
 end

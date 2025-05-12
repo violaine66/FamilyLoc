@@ -6,6 +6,14 @@ class Reservation < ApplicationRecord
 
   validate :date_debut_must_be_before_date_fin
 
+    enum statut: {
+    en_attente: "en_attente",
+    confirmée: "confirmée",
+    annulée: "annulée"
+  }
+
+  validates :statut, presence: true, inclusion: { in: statuts.keys }
+
   def date_debut_must_be_before_date_fin
     if date_debut.present? && date_fin.present? && date_debut >= date_fin
       errors.add(:date_debut, "doit être avant la date de fin")

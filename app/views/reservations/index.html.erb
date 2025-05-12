@@ -8,6 +8,13 @@
             <p>Mail : <%= r.user.email %></p>
             <p>Propriété : <%= r.propriete.nom %></p>
             <p>Du  <%= r.date_debut.strftime("%d/%m/%Y") %> au  <%= r.date_fin.strftime("%d/%m/%Y") %></p>
+            <p>Statut de la réservation: <%= r.statut %></p>
+            <% if current_user.admin? %>  <!-- Affiche cette option uniquement pour les administrateurs -->
+  <%= simple_form_for r, url: update_statut_reservation_path(r), method: :patch do |f| %>
+    <%= f.input :statut, collection: Reservation.statuts.keys.map { |statut| [statut.humanize, statut] }, label: "Modifier le statut" %>
+    <%= f.submit 'Mettre à jour', class: 'btn btn-success' %>
+  <% end %>
+<% end %>
 
 
               <%= link_to propriete_reservation_path(r.propriete, r), data: { turbo_method: :delete, turbo_confirm: "Es-tu sûr ?" } do %>

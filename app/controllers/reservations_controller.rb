@@ -61,6 +61,21 @@ end
     redirect_to reservations_path, notice: 'La réservation a été annulée avec succès.'
   end
 
+  def update_statut
+    @reservation = Reservation.find(params[:id])
+    authorize @reservation, :update_statut?
+
+
+    if @reservation.update(statut: params[:reservation][:statut])  # Récupérer le statut du formulaire
+      render json: { success: true, statut: @reservation.statut }
+    else
+      render json: { success: false, errors: @reservation.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+
+
+
   private
   def reservation_params
     params.require(:reservation).permit(:date_debut, :date_fin, :number_of_guests)

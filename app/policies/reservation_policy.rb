@@ -43,4 +43,8 @@ class ReservationPolicy < ApplicationPolicy
   def destroy?
     record.user == user || user.admin?
   end
+
+   def update_statut?
+    user.admin?
+  end
 end

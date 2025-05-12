@@ -13,4 +13,9 @@ Rails.application.routes.draw do
     resources :reservations, only: [:new, :create, :edit, :update, :destroy]
   end
   resources :reservations, only: [:index, :show ]
+  resources :reservations do
+    member do
+      patch :update_statut
+    end
+  end
 end
