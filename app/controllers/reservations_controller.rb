@@ -30,7 +30,7 @@ end
     if @reservation.save
       redirect_to propriete_path(@propriete), notice: 'La demande de réservation a été créée avec succès et est en attente de validation.'
     else
-      render "proprieres/show", status: :unprocessable_entity
+      render "proprietes/show", status: :unprocessable_entity
     end
   end
 
@@ -67,7 +67,7 @@ end
 
 
     if @reservation.update(statut: params[:reservation][:statut])  # Récupérer le statut du formulaire
-      render json: { success: true, statut: @reservation.statut }
+      render json: { success: true, statut: @reservation.statut, message: 'Le statut de la réservation a été mis à jour avec succès.' }, status: :ok
     else
       render json: { success: false, errors: @reservation.errors.full_messages }, status: :unprocessable_entity
     end
