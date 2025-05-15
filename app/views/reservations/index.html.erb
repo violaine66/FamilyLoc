@@ -10,7 +10,21 @@
             <p>Du  <%= r.date_debut.strftime("%d/%m/%Y") %> au  <%= r.date_fin.strftime("%d/%m/%Y") %></p>
             <p>Statut de la réservation: <%= r.statut %></p>
             <% if current_user.admin? %>  <!-- Affiche cette option uniquement pour les administrateurs -->
-              <%= simple_form_for r, url: update_statut_reservation_path(r), method: :patch do |f| %>
+              <%= simple_form_for r, url: update_statut_reservation_path(r), method: :patch,
+                html: {
+                     data: {
+                              controller: "alert",
+                              alert_icon_value: "warning",
+                              alert_type_value: "Es-tu sûr ?",
+                              alert_title_value: "Modifier le statut de la réservation",
+                              alert_html_value: "Tu t'apprêtes à modifier le statut de cette réservation.",
+                              alert_confirm_button_text_value: "Oui, mettre à jour",
+                              alert_cancel_button_text_value: "Annuler",
+                              alert_show_cancel_button_value: true,
+                              action: "submit->alert#initSweetalert",
+                              turbo: false
+                            }
+                } do |f| %>
                 <%= f.input :statut, collection: Reservation.statuts.keys.map { |statut| [statut.humanize, statut] }, label: "Modifier le statut" %>
                 <%= f.submit 'Mettre à jour', class: 'btn btn-success' %>
               <% end %>
