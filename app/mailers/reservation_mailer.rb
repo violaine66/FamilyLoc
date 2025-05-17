@@ -1,5 +1,5 @@
 class ReservationMailer < ApplicationMailer
-  default from: 'family-loc@app.fr'
+  default from: 'vhsoulas@gmail.com'
 
   def reservation_request_email
     @reservation = params[:reservation]
