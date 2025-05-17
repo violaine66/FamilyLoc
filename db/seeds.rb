@@ -6,28 +6,28 @@
 #
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-puts "Dropping all existing data..."
-User.destroy_all
+# #   end
+# puts "Dropping all existing data..."
+# User.destroy_all
 Propriete.destroy_all
 
-puts "Creating users..."
-User.create!(
-  email: "lou@app.fr",
-  password: "loulou",
-  password_confirmation: "loulou",
-  nom_complet: "Lou",
-  admin: true
-)
+# puts "Creating users..."
+# User.create!(
+#   email: "lou@app.fr",
+#   password: "loulou",
+#   password_confirmation: "loulou",
+#   nom_complet: "Lou",
+#   admin: true
+# )
 
-User.create!(
-  email: "coco@app.fr",
-  password: "cocococo",
-  password_confirmation: "cocococo",
-  nom_complet: "Coco",
-  admin: false
-)
-puts "Utilisateur créé "
+# User.create!(
+#   email: "coco@app.fr",
+#   password: "cocococo",
+#   password_confirmation: "cocococo",
+#   nom_complet: "Coco",
+#   admin: false
+# )
+# puts "Utilisateur créé "
 
 puts "Creating properties..."
 Propriete.create!(
