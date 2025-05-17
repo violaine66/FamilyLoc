@@ -13,7 +13,7 @@ Propriete.destroy_all
 
 puts "Creating users..."
 User.create!(
-  email: "lou@app.fr",
+  email:  ENV['GMAIL_ADDRESS'],
   password: "loulou",
   password_confirmation: "loulou",
   nom_complet: "Lou",
