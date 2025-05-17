@@ -22,4 +22,15 @@ class ReservationMailer < ApplicationMailer
     )
   end
 
+  def reservation_confirmation_update
+    @reservation = params[:reservation]
+    @propriete = @reservation.propriete
+    @user = @reservation.user
+
+    mail(
+      to: @user.email,
+      subject: "Mise à jour de votre demande de réservation"
+    )
+  end
+
 end

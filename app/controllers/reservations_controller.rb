@@ -51,6 +51,7 @@ end
     authorize @reservation
 
     if @reservation.update(reservation_params)
+      ReservationMailer.with(reservation: @reservation).reservation_confirmation_update.deliver_now
       redirect_to propriete_path(@propriete), notice: 'La réservation a été mise à jour avec succès.'
     else
       render :edit, status: :unprocessable_entity
