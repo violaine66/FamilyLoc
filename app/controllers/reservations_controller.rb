@@ -29,6 +29,7 @@ end
 
     if @reservation.save
       ReservationMailer.with(reservation: @reservation).reservation_request_email.deliver_now
+      ReservationMailer.with(reservation: @reservation).notif_admin.deliver_now
 
       redirect_to propriete_path(@propriete), notice: 'La demande de réservation a été créée avec succès et est en attente de validation.'
     else
