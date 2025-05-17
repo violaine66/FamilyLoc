@@ -1,11 +1,9 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_user!
 
- def index
+  def index
     @reservations = policy_scope(Reservation)
-end
-
-
+  end
 
   def show
     @reservation = Reservation.find(params[:id])
@@ -44,19 +42,41 @@ end
     authorize @reservation
   end
 
-  def update
-    @reservation = Reservation.find(params[:id])
-    @propriete = @reservation.propriete
-    @reservation.user = current_user
-    authorize @reservation
+  # def update
+  #   @reservation = Reservation.find(params[:id])
+  #   @propriete = @reservation.propriete
+  #   @reservation.user = current_user
+  #   authorize @reservation
 
-    if @reservation.update(reservation_params)
-      ReservationMailer.with(reservation: @reservation).reservation_confirmation_update.deliver_now
-      redirect_to propriete_path(@propriete), notice: 'La réservation a été mise à jour avec succès.'
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
+  #   if @reservation.update(reservation_params)
+  #     Rails.logger.info "Résultat de update: #{@reservation.update(reservation_params)}"
+  #   Rails.logger.info "Erreurs: #{@reservation.errors.full_messages}" unless @reservation.errors.empty?
+
+  #     ReservationMailer.with(reservation: @reservation).reservation_confirmation_update.deliver_now
+  #     redirect_to propriete_path(@propriete), notice: 'La réservation a été mise à jour avec succès.'
+  #   else
+  #     render :edit, status: :unprocessable_entity
+  #   end
+  # end
+
+#   def update
+#   @reservation = Reservation.find(params[:id])
+#   @propriete = @reservation.propriete
+#   @reservation.user = current_user
+#   authorize @reservation
+
+#   success = @reservation.update(reservation_params)
+#   Rails.logger.info "Résultat de update: #{success}"
+#   Rails.logger.info "Erreurs: #{@reservation.errors.full_messages}" unless success
+
+#   if success
+#     ReservationMailer.with(reservation: @reservation).reservation_confirmation_update.deliver_now
+#     redirect_to propriete_path(@propriete), notice: 'La réservation a été mise à jour avec succès.'
+#   else
+#     render :edit, status: :unprocessable_entity
+#   end
+# end
+
 
   def destroy
     @reservation = Reservation.find(params[:id])
@@ -71,6 +91,7 @@ end
 
 
     if @reservation.update(statut: params[:reservation][:statut])  # Récupérer le statut du formulaire
+       ReservationMailer.with(reservation: @reservation).reservation_confirmation_update.deliver_now
       render json: { success: true, statut: @reservation.statut, message: 'Le statut de la réservation a été mis à jour avec succès.' }, status: :ok
     else
       render json: { success: false, errors: @reservation.errors.full_messages }, status: :unprocessable_entity
