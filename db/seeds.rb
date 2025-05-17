@@ -19,6 +19,14 @@ User.create!(
   nom_complet: "Lou",
   admin: true
 )
+
+User.create!(
+  email: "coco@app.fr",
+  password: "cocococo",
+  password_confirmation: "cocococo",
+  nom_complet: "Coco",
+  admin: false
+)
 puts "Utilisateur créé "
 
 puts "Creating properties..."
