@@ -1,4 +1,4 @@
 <p>Une demande de reservation a été faite par :
 <p><%= @reservation.user.email %></p>
 <p>pour: <%= @reservation.propriete.nom %></p>
-<p>du <%= @reservation.date_debut %> au <%=@reservation.date_fin%> </p>
+<p>du <%= @reservation.date_debut.strftime("%d/%m/%Y") %> au <%=@reservation.date_fin.strftime("%d/%m/%Y")%> </p>
