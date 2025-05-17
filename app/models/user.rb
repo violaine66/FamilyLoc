@@ -5,10 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
         has_many :reservations, dependent: :destroy
 
-
+  after_create :send_welcome_email
   scope :admin, -> { where(admin: true) }
 
   def admin?
     self[:admin] == true
+  end
+
+  def send_welcome_email
+    UserMailer.with(user: self).welcome.deliver_now
   end
 end
