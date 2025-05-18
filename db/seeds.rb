@@ -21,6 +21,14 @@ User.create!(
 )
 
 User.create!(
+  email: "jordisoulas@gmail.com",
+  password: "family",
+  password_confirmation: "family",
+  nom_complet: "Jordi",
+  admin: true
+)
+
+User.create!(
   email: "coco@app.fr",
   password: "cocococo",
   password_confirmation: "cocococo",
