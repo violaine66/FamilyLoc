@@ -17,6 +17,7 @@ module FamilyLoc
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
     config.i18n.default_locale = :fr
+  
 
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
