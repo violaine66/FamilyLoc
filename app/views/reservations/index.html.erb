@@ -29,8 +29,8 @@
                 <%= simple_form_for r, url: update_statut_reservation_path(r), method: :patch,
                   html: {
                       data: {
-                                controller: "statut alert",
-                                action: "submit->statut#submit submit->alert#initSweetalert",
+                                controller: "alert",
+                                action: "submit->alert#initSweetalert",
                                 alert_icon_value: "warning",
                                 alert_type_value: "Es-tu sûr ?",
                                 alert_title_value: "Modifier le statut de la réservation",
