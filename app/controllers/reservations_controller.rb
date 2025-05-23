@@ -31,7 +31,8 @@ class ReservationsController < ApplicationController
 
       redirect_to propriete_path(@propriete), notice: 'La demande de réservation a été créée avec succès et est en attente de validation.'
     else
-      render "proprietes/show", status: :unprocessable_entity
+       flash.now[:alert] = @reservation.errors.full_messages.first
+      render 'proprietes/show', status: :unprocessable_entity
     end
   end
 

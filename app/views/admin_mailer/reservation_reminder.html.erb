@@ -1,0 +1,4 @@
+<h1>Rappel de réservation</h1>
+<p>La réservation <%= @reservation.user.nom_complet%> pour <%= @reservation.propriete.nom %>
+commence le <%= @reservation.date_debut.strftime("%d/%m/%Y") %> et se termine le <%= @reservation.date_fin%>.</p>
+ 
