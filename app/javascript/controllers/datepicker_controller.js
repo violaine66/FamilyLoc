@@ -24,12 +24,12 @@ export default class extends Controller {
 
     // Initialiser flatpickr avec les plages désactivées
     flatpickr(this.element.querySelectorAll("input[type='text']"), {
-
+      minDate : "today",
     altInput: true,
     altFormat: "d-m-Y",
     dateFormat: "Y-m-d",
+    disable: disabledRanges,
 
-      disable: disabledRanges,
       onDayCreate: (dObj, dStr, fp, dayElem) => {
         const date = new Date(dayElem.dateObj);
         if (bookedDates.some(d => d.getTime() === date.getTime())) {
