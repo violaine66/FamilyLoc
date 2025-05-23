@@ -14,7 +14,7 @@ class Reservation < ApplicationRecord
   }
 
   validates :statut, presence: true, inclusion: { in: statuts.keys }
-  after_create :schedule_admin_reminder
+
 
   private
 
