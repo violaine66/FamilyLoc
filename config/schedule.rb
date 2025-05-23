@@ -20,6 +20,13 @@
 # Learn more: http://github.com/javan/whenever
 set :output, "log/cron_log.log"
 
-every 1.day, at: '9:00 am' do
-  runner "Reservation.send_admin_reminders"
+# every 1.day, at: '9:00 am' do
+#   runner "Reservation.send_admin_reminders"
+# end
+every 1.minute do
+  runner "Reservation.send_admin_reminders", environment: :production
 end
+# Reservation.send_admin_reminders
+
+# Mettre à jour à chaque modification
+# whenever --update-crontab
