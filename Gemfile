@@ -53,7 +53,8 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem "pundit"
 gem 'letter_opener', group: :development
-  gem 'letter_opener_web'
+gem 'letter_opener_web'
+gem 'whenever', require: false
 
 group :development, :test do
   gem "dotenv-rails"
