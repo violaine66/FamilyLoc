@@ -4,19 +4,21 @@
   </li>
   <li class="nav-item">
     <%= link_to "Propriétés", proprietes_path, class:"nav-link text-dark #{'active' if current_page?(proprietes_path)}"  %>
+  </li>
   <li class="nav-item">
     <%= link_to"Réservations", reservations_path, class:"nav-link text-dark #{'active' if current_page?(reservations_path)}" %>
   </li>
-  <% if current_user.admin?%>
+  <%  if user_signed_in? && current_user.admin?%>
     <li class="nav-item">
       <%= link_to "Tableau de bord",admin_reservations_path, class:"nav-link text-dark #{'active' if current_page?(admin_reservations_path)}" %>
-    <li>
+    </li>
   <% end %>
-    <li>
-      <% if user_signed_in?%>
-        <%= link_to "Se déconnecter", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link text-dark" %>
-      <% else %>
-        <%= link_to "Se connecter", new_user_session_path, class: "nav-link text-dark" %>
-      <% end %>
+  <li class="nav-item">
+    <% if user_signed_in?%>
+      <%= link_to "Se déconnecter", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link text-dark" %>
+    <% else %>
+      <%= link_to "Se connecter", new_user_session_path, class: "nav-link text-dark" %>
+    <% end %>
   </li>
+
 </ul>
