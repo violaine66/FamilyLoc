@@ -1,1 +1,2 @@
-<h1>Rappel de réservation</h1>
+<h1>Rappel de réservation dans 7 jours </h1>
+<p> <%=@reservation.user.nom_complet%>, <%= @reservation.user.email%> pour :<%=@reservation.propriete.nom %> du <%= @reservation.date_debut.strftime("%d/%m/%Y")%> au <%= @reservation.date_fin.strftime("%d/%m/%Y")%></p>

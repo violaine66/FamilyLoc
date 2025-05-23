@@ -21,8 +21,14 @@ export default class extends Controller {
       });
     }
 
+
     // Initialiser flatpickr avec les plages désactivées
     flatpickr(this.element.querySelectorAll("input[type='text']"), {
+
+    altInput: true,
+    altFormat: "d-m-Y",
+    dateFormat: "Y-m-d",
+
       disable: disabledRanges,
       onDayCreate: (dObj, dStr, fp, dayElem) => {
         const date = new Date(dayElem.dateObj);
