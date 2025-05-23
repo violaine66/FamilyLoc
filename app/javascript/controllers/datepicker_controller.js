@@ -20,12 +20,30 @@ export default class extends Controller {
         to: end.toISOString().split('T')[0],
       });
     }
+    const FRENCH_LOCALE = {
+  weekdays: {
+    shorthand: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+    longhand: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+  },
+  months: {
+    shorthand: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jui', 'Juil', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'],
+    longhand: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+  },
+  firstDayOfWeek: 1, // lundi
+  rangeSeparator: ' au ',
+  weekAbbreviation: 'Sem',
+  scrollTitle: 'Défiler pour augmenter la valeur',
+  toggleTitle: 'Cliquer pour basculer',
+};
+
 
 
     // Initialiser flatpickr avec les plages désactivées
     flatpickr(this.element.querySelectorAll("input[type='text']"), {
       minDate : "today",
     altInput: true,
+    locale: FRENCH_LOCALE,
+
     altFormat: "d-m-Y",
     dateFormat: "Y-m-d",
     disable: disabledRanges,
