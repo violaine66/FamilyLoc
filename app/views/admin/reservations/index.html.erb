@@ -1,0 +1,31 @@
+
+
+<table>
+  <thead>
+    <tr>
+
+      <th>Utilisateur</th>
+      <th>Email</th>
+      <th>Propriété</th>
+      <th>Ville</th>
+      <th>Date</th>
+      <th>Statut</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+    <% @reservations.each do |r| %>
+      <tr>
+
+        <td><%= r.user.nom_complet %></td>
+        <td><%= r.user.email %></td>
+        <td><%= r.propriete.nom %></td>
+        <td><%= r.propriete.adresse %></td>
+        <td><%= r.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= r.statut %></td>
+
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :reservations, only: [:index, :show, :destroy]
+  end
   devise_for :users
   root to: "pages#home"
   if Rails.env.development?
