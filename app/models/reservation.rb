@@ -18,15 +18,6 @@ class Reservation < ApplicationRecord
 
   private
 
-  def schedule_admin_reminder
-    reminder_date = date_debut - 7.days
-    delay = reminder_date.to_time - Time.now
-
-    if delay > 0
-      ReservationReminderJob.set(wait: delay).perform_later(id)
-    end
-  end
-
   def date_debut_must_be_before_date_fin
     if date_debut.present? && date_fin.present? && date_debut >= date_fin
       errors.add(:date_debut, "doit être avant la date de fin")
@@ -38,6 +29,16 @@ class Reservation < ApplicationRecord
     if new_record?
     conflicting_reservations = propriete.reservations.where('date_debut < ? AND date_fin > ?', date_fin, date_debut).exists?
     errors.add(:base, "Les dates choisies sont déjà réservées") if conflicting_reservations
+    end
+  end
+
+   def self.send_admin_reminders
+    date_cible = Date.today + 7.days
+    reservations = where(date_debut: date_cible)
+
+    reservations.find_each do |reservation|
+      AdminMailer.with(reservation: reservation).reservation_reminder.deliver_now
+      Rails.logger.info "Rappel envoyé pour réservation ##{reservation.id}"
     end
   end
 end
