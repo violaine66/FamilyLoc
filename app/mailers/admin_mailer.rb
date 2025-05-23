@@ -1,5 +1,5 @@
 class AdminMailer < ApplicationMailer
-   default from: 'notification@family-loc.fr'
+   default from:  ENV['GMAIL_ADDRESS']
 
   def reservation_reminder
     @reservation = params[:reservation]
