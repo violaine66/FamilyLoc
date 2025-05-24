@@ -32,13 +32,18 @@ class Reservation < ApplicationRecord
     end
   end
 
-   def self.send_admin_reminders
-    date_cible = Date.today + 7.days
-    reservations = where(date_debut: date_cible)
-
-    reservations.find_each do |reservation|
-      AdminMailer.with(reservation: reservation).reservation_reminder.deliver_now
-      Rails.logger.info "Rappel envoyé pour réservation ##{reservation.id}"
-    end
+  def self.send_admin_reminders
+  File.open(Rails.root.join("log", "reminder.log"), "a") do |f|
+    f.puts "send_admin_reminders called at #{Time.now}"
   end
+
+  date_cible = Date.today + 7.days
+  reservations = where(date_debut: date_cible)
+
+  reservations.find_each do |reservation|
+    AdminMailer.with(reservation: reservation).reservation_reminder.deliver_now
+    Rails.logger.info "Rappel envoyé pour réservation ##{reservation.id}"
+  end
+end
+
 end
