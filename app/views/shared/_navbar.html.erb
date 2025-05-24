@@ -1,25 +1,26 @@
-<ul class="nav">
+<div class="container mt-4">
+    <ul class="list-inline tabs-underlined">
   <% if user_signed_in? %>
-    <li class="nav-item">
-      <%= link_to "Propriétés", proprietes_path, class: "nav-link text-dark #{'active' if current_page?(proprietes_path)}" %>
+    <li>
+        <%= link_to "Propriétés", proprietes_path, class:  "text-dark tab-underlined #{'active' if current_page?(proprietes_path)}" %>
     </li>
-    <li class="nav-item">
-      <%= link_to "Réservations", reservations_path, class: "nav-link text-dark #{'active' if current_page?(reservations_path)}" %>
+    <li>
+      <%= link_to "Réservations", reservations_path, class: "text-dark tab-underlined #{'active' if current_page?(reservations_path)}" %>
     </li>
-
     <% if current_user.admin? %>
       <li class="nav-item">
-        <%= link_to "Tableau de bord", admin_reservations_path, class: "nav-link text-dark #{'active' if current_page?(admin_reservations_path)}" %>
+        <%= link_to "Tableau de bord", admin_reservations_path, class: "text-dark tab-underlined #{'active' if current_page?(admin_reservations_path)}" %>
       </li>
     <% end %>
-
     <li class="nav-item ms-auto">
-      <%= link_to "Déconnexion", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link text-dark" %>
+      <%= link_to "Déconnexion", destroy_user_session_path, data: { turbo_method: :delete }, class: "tab-underlined text-dark" %>
     </li>
   <% else %>
     <li class="nav-item ms-auto">
-      <%= link_to "Connexion", new_user_session_path, class: "nav-link text-dark" %>
+      <%= link_to "Connexion", new_user_session_path, class: "tab-underlined text-dark" %>
     </li>
   <% end %>
-</div>
 </ul>
+
+
+</div>

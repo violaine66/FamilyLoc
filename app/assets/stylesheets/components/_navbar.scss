@@ -1,7 +1,38 @@
-.nav {
-  border-bottom: 1px solid rgb(215, 213, 213) ;
-  padding: 10px 0;
+
+
+.tabs-underlined {
+  display: flex;
+  align-items: center;
 }
-.navbar-collapse {
-  flex-grow: 0;
+
+.tabs-underlined .tab-underlined {
+  color: black;
+  padding: 8px;
+  margin: 8px;
+  opacity: .4;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 4px solid transparent;
+}
+
+.tabs-underlined .tab-underlined.active {
+  opacity: 1;
+  border-bottom: 3px solid #555555;
+}
+@media (max-width: 725px) {
+  .tabs-underlined li {
+    text-align: center;
+   
+     padding:0px;
+    margin: 0px;
+    font-size: 12px
+  }
+
+  .tab-underlined {
+    display: inline-block;      /* ou block si tu veux tout centrer */
+    white-space: normal;        /* autorise les retours à la ligne */
+    word-break: normal;         /* ne casse pas les mots */
+    overflow-wrap: break-word;  /* coupe uniquement entre les mots */
+    text-align: center;
+  }
 }
