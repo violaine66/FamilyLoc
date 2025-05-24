@@ -1,31 +1,39 @@
-
-
-<table>
-  <thead>
-    <tr>
-
-      <th>Utilisateur</th>
-      <th>Email</th>
-      <th>Propriété</th>
-      <th>Ville</th>
-      <th>Date</th>
-      <th>Statut</th>
-    
-    </tr>
-  </thead>
-  <tbody>
-    <% @reservations.each do |r| %>
-      <tr>
-
-        <td><%= r.user.nom_complet %></td>
-        <td><%= r.user.email %></td>
-        <td><%= r.propriete.nom %></td>
-        <td><%= r.propriete.adresse %></td>
-        <td><%= r.created_at.strftime("%d/%m/%Y") %></td>
-        <td><%= r.statut %></td>
-
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row py-5">
+      <div class="col-12">
+        <table id="example" class="table table-hover responsive nowrap" style="width:100%">
+          <thead>
+            <tr>
+              <th>Personne</th>
+              <th>Propriété</th>
+              <th>Réservation</th>
+              <th>Statut de la réservation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @reservations.each do |r| %>
+              <tr>
+                <td><p class="font-weight-bold mb-0" ><%= r.user.nom_complet %></p><p class="text-muted mb-0"><%= r.user.email %></p></td>
+                <td><%= r.propriete.nom %></td>
+                <td>Du <%=r.date_debut.strftime("%d/%m/%Y") %> au <%= r.date_fin.strftime("%d/%m/%Y")%></td>
+                <td>
+                  <span class="<%=
+                    case r.statut
+                    when 'confirmée'
+                      'badge bg-success'
+                    when 'annulée'
+                      'badge bg-danger'
+                    else
+                      'badge bg-warning text-dark'
+                    end
+                  %>">
+                    <%= r.statut.capitalize %>
+                  </span>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
