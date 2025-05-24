@@ -33,6 +33,7 @@ class Reservation < ApplicationRecord
   end
 
   def self.send_admin_reminders
+    Rails.logger.info "[Scheduler] send_admin_reminders démarré à #{Time.current}"
   File.open(Rails.root.join("log", "reminder.log"), "a") do |f|
     f.puts "send_admin_reminders called at #{Time.now}"
   end
