@@ -18,13 +18,13 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-set :output, "log/cron_log.log"
-
+# set :output, "log/cron_log.log"
+set :environment, 'production'
 # every 1.day, at: '9:00 am' do
 #   runner "Reservation.send_admin_reminders"
 # end
 every 1.minute do
-  runner "Reservation.send_admin_reminders", environment: :production
+  runner "AdminMailer.send_reservation_reminder", environment: :production
 end
 # Reservation.send_admin_reminders
 
