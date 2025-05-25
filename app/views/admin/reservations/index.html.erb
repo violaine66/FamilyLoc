@@ -1,5 +1,9 @@
 <div class="container">
   <div class="row py-5">
+    <%= form_with url: admin_reservations_path, method: :get, local: true, class: "d-flex my-2" do %>
+    <%= text_field_tag :query, params[:query], class: "form-control  me-2" %>
+    <%= submit_tag "Recherche", class: "btn btn-info" %>
+ <% end %>
       <div class="col-12">
         <table id="example" class="table table-responsive " style="width:100%">
           <thead>

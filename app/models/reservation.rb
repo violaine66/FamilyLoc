@@ -1,4 +1,6 @@
 class Reservation < ApplicationRecord
+  include PgSearch::Model
+
   belongs_to :user
   belongs_to :propriete
   validates :date_debut, presence: true
@@ -15,6 +17,15 @@ class Reservation < ApplicationRecord
 
   validates :statut, presence: true, inclusion: { in: statuts.keys }
 
+  pg_search_scope :global_search,
+    against: [ :date_debut, :date_fin],
+    associated_against: {
+      user: [ :nom_complet, :email ],
+      propriete: [ :adresse]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 
   private
 
