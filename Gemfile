@@ -54,6 +54,7 @@ gem "sassc-rails"
 gem "pundit"
 gem 'letter_opener', group: :development
 gem 'letter_opener_web'
+gem "pg_search"
 
 
 group :development, :test do
