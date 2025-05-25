@@ -1,24 +1,23 @@
-<div class="container mt-5">
-  <div class="row d-flex justify-content-center">
-    <div class="col-sm-12 col-md-10 col-lg-8 mx-auto">
-      <% @proprietes.each do |p| %>
-        <%= link_to propriete_path(p), class: "text-decoration-none text-reset" do %>
-          <div class="card-propriete">
+<div class="container my-5">
+  <div class="row justify-content-center gy-4">
+    <% @proprietes.each do |p| %>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+        <%= link_to propriete_path(p), class: "text-decoration-none text-reset w-100", style: "max-width: 20rem;" do %>
+          <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-shadow">
             <% if p.nom == "Hendaye, appartement du haut" %>
-              <%= image_tag "jumeaux.jpg"%>
-            <% elsif p.nom == "Hendaye, appartement du bas"%>
-             <%= image_tag "jumeaux2.webp" %>
+              <%= image_tag "jumeaux.jpg", class: "card-img-top", style: "object-fit: cover; height: 200px;" %>
+            <% elsif p.nom == "Hendaye, appartement du bas" %>
+              <%= image_tag "jumeaux2.webp", class: "card-img-top", style: "object-fit: cover; height: 200px;" %>
             <% else %>
-              <%= image_tag "prechac.jpg" %>
+              <%= image_tag "prechac.jpg", class: "card-img-top", style: "object-fit: cover; height: 200px;" %>
             <% end %>
-            <div class="card-propriete-infos">
-              <h2 class="text-decoration-none"><%= p.nom %></h2>
-              <p >  <%= p.adresse %></p>
+            <div class="card-body text-center">
+              <h5 class="card-title fw-bold"><%= p.nom %></h5>
+              <p class="card-text text-muted"><%= p.adresse %></p>
             </div>
           </div>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
-
