@@ -13,11 +13,15 @@
       </li>
     <% end %>
     <li class="nav-item ms-auto">
-      <%= link_to "Déconnexion", destroy_user_session_path, data: { turbo_method: :delete }, class: "tab-underlined text-dark" %>
+      <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "tab-underlined text-dark" do  %>
+        <%= image_tag "logout.png", class: "me-2", alt: "Déconnexion" %>
+      <% end %>
     </li>
   <% else %>
     <li class="nav-item ms-auto">
-      <%= link_to "Connexion", new_user_session_path, class: "tab-underlined text-dark" %>
+      <%= link_to new_user_session_path, class: "tab-underlined text-dark" do %>
+        <%= image_tag "login.png", class: "me-2", alt: "Connexion" %>
+      <% end %>
     </li>
   <% end %>
 </ul>
