@@ -2,13 +2,9 @@ class ReservationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    query = params[:query].to_s.strip
+    @reservations = policy_scope(Reservation).order(:date_debut)
 
-    base_scope = policy_scope(Reservation).includes(:user, :propriete).order(:date_debut)
-
-    @reservations = query.present? ? base_scope.global_search(query) : base_scope
   end
-
 
   def show
     @reservation = Reservation.find(params[:id])

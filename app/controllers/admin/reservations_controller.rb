@@ -3,10 +3,13 @@ class Admin::ReservationsController < ApplicationController
   after_action :verify_authorized
 
   def index
-    @reservations = policy_scope(Reservation).includes(:user, :propriete).order(created_at: :desc)
-    authorize Reservation
-  end
+   query = params[:query].to_s.strip
 
+    base_scope = policy_scope(Reservation).includes(:user, :propriete).order(:date_debut)
+
+    @reservations = query.present? ? base_scope.global_search(query) : base_scope
+    authorize @reservations
+  end
   def show
     @reservation = Reservation.find(params[:id])
     authorize @reservation
