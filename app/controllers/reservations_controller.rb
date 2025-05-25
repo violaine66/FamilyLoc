@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @reservations = policy_scope(Reservation)
+    @reservations = policy_scope(Reservation).order(:date_debut)
   end
 
   def show
