@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-sm-8 col-md-6 col-lg-6 mx-auto">
       <div class="form" data-controller="datepicker"
-        data-datepicker-booked-dates-value = "<%= propriete.reservations.pluck(:date_debut, :date_fin).flatten.map { |d| d.to_date.to_s }.to_json %>">
+
+        data-datepicker-booked-dates-value = "<%= propriete.reservations.where.not(statut: 'annulée').pluck(:date_debut, :date_fin).flatten.map { |d| d.to_date.to_s }.to_json %>">
 
         <%= simple_form_for [@propriete, @reservation] do |f| %>
         <%= f.input :date_debut, as: :string,
