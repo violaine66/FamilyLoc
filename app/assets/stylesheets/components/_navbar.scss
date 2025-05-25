@@ -1,4 +1,8 @@
-
+.container-navbar ul {
+  background-color: #FFEFD6;
+  margin-bottom: 0;
+  padding: 30px 40px;
+}
 
 .tabs-underlined {
   display: flex;
@@ -22,7 +26,7 @@
 @media (max-width: 725px) {
   .tabs-underlined li {
     text-align: center;
-   
+
      padding:0px;
     margin: 0px;
     font-size: 12px
