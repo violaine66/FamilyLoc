@@ -59,6 +59,8 @@ gem "pg_search"
 
 gem 'rack-attack'
 
+gem 'bullet', group: 'development'
+
 
 group :development, :test do
   gem "dotenv-rails"
