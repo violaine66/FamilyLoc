@@ -7,7 +7,7 @@
           <div class="card mb-3">
             <div class="card-body">
               <div class="d-flex justify-content-between">
-                <div><strong>Réservation faite par <%= r.user.nom_complet %></strong></div>
+                <div><strong><p><%= image_tag "person.png"%> <%= r.user.nom_complet %></p></strong></div>
                 <div class="edit-destroy d-flex justify-content-end">
                   <div>
                     <%= link_to propriete_reservation_path(r.propriete, r), data: { turbo_method: :delete, turbo_confirm: "Es-tu sûr ?" } do %>
@@ -22,9 +22,9 @@
                 </div>
               </div>
 
-              <p>Mail : <%= r.user.email %></p>
-              <p>Propriété : <%= r.propriete.nom %></p>
-              <p>Du  <%= r.date_debut.strftime("%d/%m/%Y") %> au  <%= r.date_fin.strftime("%d/%m/%Y") %></p>
+              <p><%= image_tag "mail.png"%> <%= r.user.email %></p>
+              <p><%= image_tag "house.png"%> <%= r.propriete.nom %></p>
+              <p><%= image_tag "calendar.png"%> Du  <%= r.date_debut.strftime("%d/%m/%Y") %> au  <%= r.date_fin.strftime("%d/%m/%Y") %></p>
               <p>Statut de la réservation: <%= r.statut %></p>
               <% if current_user.admin? %>  <!-- Affiche cette option uniquement pour les administrateurs -->
                 <%= simple_form_for r, url: update_statut_reservation_path(r), method: :patch,

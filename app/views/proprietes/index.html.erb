@@ -1,6 +1,6 @@
 
  <%= render "shared/navbar" %><div class="container my-5">
-  <div class="row justify-content-center gy-4">
+  <div class="row justify-content-center py-4">
     <% @proprietes.each do |p| %>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
         <%= link_to propriete_path(p), class: "text-decoration-none text-reset w-100", style: "max-width: 20rem;" do %>
@@ -20,5 +20,13 @@
         <% end %>
       </div>
     <% end %>
+  </div>
+  
+  <div class="row d-flex justify-content-center ">
+    <div class="col-12 col-md-6 d-flex justify-content-around text-center" id="icons">
+      <%= image_tag "mountain2.png" %>
+      <%= image_tag "love-home.png" %>
+      <%= image_tag "wave.png" %>
+    </div>
   </div>
 </div>
