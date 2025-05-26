@@ -17,7 +17,7 @@ class ReservationMailer < ApplicationMailer
     @user = @reservation.user
 
     mail(
-      to: "#{ENV['GMAIL_ADDRESS']}",
+      to: "#{ENV['GMAIL_ADDRESS'], ENV['ADMIN2']}",
       subject: "Nouvelle demande de réservation"
     )
   end
