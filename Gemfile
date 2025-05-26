@@ -55,6 +55,9 @@ gem "pundit"
 gem 'letter_opener', group: :development
 gem 'letter_opener_web'
 gem "pg_search"
+# In your Gemfile
+
+gem 'rack-attack'
 
 
 group :development, :test do
