@@ -70,6 +70,11 @@ Rails.application.configure do
 
   config.hosts << "www.example.com"
 
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.rails_logger = true
+  end
+
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
