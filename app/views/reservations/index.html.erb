@@ -22,10 +22,10 @@
                 </div>
               </div>
 
-              <p><%= image_tag "mail.png"%> <%= r.user.email %></p>
-              <p><%= image_tag "house.png"%> <%= r.propriete.nom %></p>
-              <p><%= image_tag "calendar.png"%> Du  <%= r.date_debut.strftime("%d/%m/%Y") %> au  <%= r.date_fin.strftime("%d/%m/%Y") %></p>
-              <p>Statut de la réservation: <%= r.statut %></p>
+              <p><%= image_tag "mail.png", class:"pe-2"%> <%= r.user.email %></p>
+              <p><%= image_tag "house.png", class:"pe-2"%> <%= r.propriete.nom %></p>
+              <p><%= image_tag "calendar.png", class:"pe-2"%> Du  <%= r.date_debut.strftime("%d/%m/%Y") %> au  <%= r.date_fin.strftime("%d/%m/%Y") %></p>
+              <p><strong class="pe-2">Statut:</strong><%= r.statut %></p>
               <% if current_user.admin? %>  <!-- Affiche cette option uniquement pour les administrateurs -->
                 <%= simple_form_for r, url: update_statut_reservation_path(r), method: :patch,
                   html: {
@@ -43,7 +43,7 @@
                               }
                   } do |f| %>
                   <%= f.input :statut, collection: Reservation.statuts.keys.map { |statut| [statut.humanize, statut] }, label: "Modifier le statut" %>
-                  <%= f.submit 'Mettre à jour', class: 'btn btn-success' %>
+                  <%= f.submit 'Mettre à jour', class: 'btn-home' %>
                 <% end %>
               <% end %>
 
