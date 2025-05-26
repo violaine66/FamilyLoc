@@ -3,7 +3,7 @@
   <div class="row py-5">
     <%= form_with url: admin_reservations_path, method: :get, local: true, class: "d-flex my-2" do %>
     <%= text_field_tag :query, params[:query], class: "form-control me-2", onclick: "this.value=''" %>
-    <%= submit_tag "Recherche", class: "btn btn-info" %>
+    <%= submit_tag "Recherche", class: "btn-githome" %>
     <% end %>
       <% if @reservations.any?%>
           <div class="col-12">
