@@ -17,7 +17,6 @@ User.create!(
   nom_complet: "Violaine Soulas",
   password: "loulou",
   password_confirmation: "loulou",
-  nom_complet: "Lou",
   admin: true
 )
 
