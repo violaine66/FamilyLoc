@@ -1,50 +1,56 @@
- <%= render "shared/navbar" %>
-<div class="container">
-  <div class="row py-5">
-    <%= form_with url: admin_reservations_path, method: :get, local: true, class: "d-flex my-2" do %>
-    <%= text_field_tag :query, params[:query], class: "form-control me-2", onclick: "this.value=''" %>
-    <%= submit_tag "Recherche", class: "btn-githome" %>
-    <% end %>
-      <% if @reservations.any?%>
-          <div class="col-12">
-            <table id="example" class="table table-responsive " style="width:100%">
-              <thead>
-                <tr>
-                  <th>Personne</th>
-                  <th>Propriété</th>
-                  <th>Réservation</th>
-                  <th>Statut de la réservation</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @reservations.each do |r| %>
-                  <tr>
-                    <td><p class="font-weight-bold mb-0" ><%= r.user.nom_complet %></p><p class="text-muted mb-0"><%= r.user.email %></p></td>
-                    <td><%= r.propriete.nom %></td>
-                    <td>Du <%=r.date_debut.strftime("%d/%m/%Y") %> au <%= r.date_fin.strftime("%d/%m/%Y")%></td>
-                    <td>
-                      <span class="<%=
-                        case r.statut
-                        when 'confirmée'
-                          'badge bg-success'
-                        when 'annulée'
-                          'badge bg-danger'
-                        else
-                          'badge bg-warning text-dark'
-                        end
-                      %>">
-                        <%= r.statut.capitalize %>
-                      </span>
-                    </td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-      <% else %>
-            <div class="col-12">
-              <p class="text-center">Aucune réservation trouvée.</p>
-            </div>
+<%= render "shared/navbar" %>
+
+<div class="container-fluid">
+  <div class="row justify-content-center py-4">
+    <div class="col-12 col-md-6">
+      <%= form_with url: admin_reservations_path, method: :get, local: true, class: "d-flex mb-4" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control me-2", onclick: "this.value=''" %>
+        <%= submit_tag "Recherche", class: "btn-home" %>
       <% end %>
     </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <% if @reservations.any? %>
+      <div class="col-12 col-md-10">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead class="table-light">
+              <tr>
+                <th>Personne</th>
+                <th>Propriété</th>
+                <th>Réservation</th>
+                <th>Statut</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @reservations.each do |r| %>
+                <tr>
+                  <td>
+                    <p class="mb-0 fw-bold"><%= r.user.nom_complet %></p>
+                    <p class="mb-0 text-muted"><%= r.user.email %></p>
+                  </td>
+                  <td><%= r.propriete.nom %></td>
+                  <td>Du <%= r.date_debut.strftime("%d/%m/%Y") %> au <%= r.date_fin.strftime("%d/%m/%Y") %></td>
+                  <td>
+                    <span class="<%= case r.statut
+                      when 'confirmée' then 'badge bg-success'
+                      when 'annulée' then 'badge bg-danger'
+                      else 'badge bg-warning text-dark'
+                    end %> p-2">
+                      <%= r.statut.capitalize %>
+                    </span>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <% else %>
+      <div class="col-12 text-center">
+        <p>Aucune réservation trouvée.</p>
+      </div>
+    <% end %>
   </div>
 </div>
