@@ -11,6 +11,7 @@
   width: 50px;
   margin-top: 60px;
   object-fit: cover;
+  color: gold ;
 }
 
 .card-body {
@@ -20,4 +21,10 @@
 
 .card {
   border-radius: 8px;
+}
+
+#user_nom {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }

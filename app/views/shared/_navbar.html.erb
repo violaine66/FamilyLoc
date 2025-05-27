@@ -1,5 +1,11 @@
 <div class="container-navbar" id="navbar">
-    <ul class="list-inline tabs-underlined ">
+
+  <ul class="list-inline tabs-underlined ">
+    <li class="me-1 ms-0">  <%= image_tag "FamilyLoc.png", style:"
+        height: 35px;
+        width: 35px;"%>
+    </li>
+
   <% if user_signed_in? %>
     <li>
         <%= link_to "Propriétés", proprietes_path, class:  "text-dark tab-underlined #{'active' if current_page?(proprietes_path)}" %>
