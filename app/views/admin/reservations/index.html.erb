@@ -5,7 +5,12 @@
     <div class="col-12 col-md-6">
       <%= form_with url: admin_reservations_path, method: :get, local: true, class: "d-flex mb-4" do %>
         <%= text_field_tag :query, params[:query], class: "form-control me-2", onclick: "this.value=''" %>
-        <%= submit_tag "Recherche", class: "btn-home" %>
+         <button type="submit" class="btn-search" title="Rechercher">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+          <%= link_to admin_reservations_path, class: "btn-reset ms-1", title: "Réinitialiser la recherche" do %>
+    <i class="fa-solid fa-xmark"></i>
+  <% end %>
       <% end %>
     </div>
   </div>
