@@ -1,36 +1,35 @@
 <div class="container-navbar" id="navbar">
+  <ul class="list-inline tabs-underlined d-flex align-items-center px-2">
 
-  <ul class="list-inline tabs-underlined ">
-    <li class="me-1 ms-0">  <%= image_tag "FamilyLoc.png", style:"
-        height: 35px;
-        width: 35px;"%>
+    <!-- Logo avec marge à droite pour l'espacement -->
+    <li class="me-3 me-md-4">
+      <%= image_tag "FamilyLoc.png", style: "height: 35px; width: 35px;" %>
     </li>
 
-  <% if user_signed_in? %>
-    <li>
-        <%= link_to "Propriétés", proprietes_path, class:  "text-dark tab-underlined #{'active' if current_page?(proprietes_path)}" %>
-    </li>
-    <li>
-      <%= link_to "Réservations", reservations_path, class: "text-dark tab-underlined #{'active' if current_page?(reservations_path)}" %>
-    </li>
-    <% if current_user.admin? %>
-      <li class="nav-item">
-        <%= link_to "Tableau de bord", admin_reservations_path, class: "text-dark tab-underlined #{'active' if current_page?(admin_reservations_path)}" %>
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to "Propriétés", proprietes_path, class: "text-dark tab-underlined #{'active' if current_page?(proprietes_path)}" %>
+      </li>
+      <li>
+        <%= link_to "Réservations", reservations_path, class: "text-dark tab-underlined #{'active' if current_page?(reservations_path)}" %>
+      </li>
+      <% if current_user.admin? %>
+        <li>
+          <%= link_to "Tableau de bord", admin_reservations_path, class: "text-dark tab-underlined #{'active' if current_page?(admin_reservations_path)}" %>
+        </li>
+      <% end %>
+      <li class="ms-auto">
+        <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "tab-underlined text-dark" do  %>
+          <%= image_tag "logout.png", class: "me-2", alt: "Déconnexion" %>
+        <% end %>
+      </li>
+    <% else %>
+      <li class="ms-auto">
+        <%= link_to new_user_session_path, class: "tab-underlined text-dark" do %>
+          <%= image_tag "login.png", class: "me-2", alt: "Connexion" %>
+        <% end %>
       </li>
     <% end %>
-    <li class="nav-item ms-auto">
-      <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "tab-underlined text-dark" do  %>
-        <%= image_tag "logout.png", class: "me-2", alt: "Déconnexion" %>
-      <% end %>
-    </li>
-  <% else %>
-    <li class="nav-item ms-auto">
-      <%= link_to new_user_session_path, class: "tab-underlined text-dark" do %>
-        <%= image_tag "login.png", class: "me-2", alt: "Connexion" %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
 
-
+  </ul>
 </div>
