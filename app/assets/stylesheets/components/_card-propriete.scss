@@ -15,7 +15,7 @@
 }
 
 .card-body {
-  //  background-color: #BDDDE4;
+  // background-color: #FFF8DE;
    border-radius: 8px;
 }
 
@@ -27,4 +27,8 @@
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 1px;
+}
+
+.form-select.is-valid {
+  border-color: gold !important;
 }

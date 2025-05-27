@@ -15,7 +15,7 @@
             <h2> <% @propriete.nom %></h2>
             <p><%= @propriete.adresse %></p>
           </div>
-          <button data-action="click->toggle#fire" class="btn btn-outline-primary"> Reserver</button>
+          <button data-action="click->toggle#fire" class=" btn btn-ghost"> Reserver</button>
         </div>
       </div>
       <div data-toggle-target="togglableElement" class="d-none mt-5"><%= render "reservations/form", propriete: @propriete, reservation: @reservation %></div>

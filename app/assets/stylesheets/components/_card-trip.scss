@@ -30,6 +30,7 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  // background-color: #FFF8DE;
 }
 
 .card-trip-infos .card-trip-user {
@@ -52,4 +53,19 @@
   width: 100%;
   height: auto; /* conserve la hauteur naturelle */
   display: block; /* évite les petits espaces sous l’image */
+}
+
+.btn-ghost {
+  color: gold;
+  border: 1px solid gold;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: bolder;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+  color: gold;
 }
