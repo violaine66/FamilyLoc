@@ -25,7 +25,6 @@ User.create!(
   nom_complet: "Jordi Soulas",
   password: "family",
   password_confirmation: "family",
-  nom_complet: "Jordi",
   admin: true
 )
 

@@ -1,12 +1,16 @@
-<h2 class="text-center">Calendrier des réservations</h2>
-
+<%= render "shared/navbar"%>
+<div class="d-flex justify-content-center ">
+  <h3 class="btn-ghost" style="width=300px;">Calendrier des réservations</h3>
+</div>
 <div class="calendar-container d-flex justify-content-center">
   <%= month_calendar(year: @year, month: @month) do |date| %>
-    <div class="day"><%= date.day %></div>
+    <div class="day text-center"><%= date.day %></div>
 
-    <% reservations_du_jour = @reservations.select do |res|
+
+      <% reservations_du_jour = @reservations.select do |res|
          res.date_debut <= date && res.date_fin >= date
        end %>
+
 
     <% reservations_du_jour.each do |reservation| %>
       <div class="reservation-block">
