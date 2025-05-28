@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+   get '/reservations/calendar', to: 'reservations#calendar', as: 'calendar_reservations'
+
   resources :proprietes do
     resources :reservations, only: [:new, :create, :edit, :update, :destroy]
   end

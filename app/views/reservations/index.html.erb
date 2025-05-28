@@ -1,7 +1,11 @@
  <%= render "shared/navbar" %>
 <div class="container mt-3">
+  <p>Consulter le calendrier des réservations</p>
+  <%= link_to "Voir le calendrier", calendar_reservations_path, class: "btn btn-ghost" %>
+
   <div class="row d-flex justify-content-center">
     <div class="col-sm-8 col-md-6 col-lg-6 mx-auto">
+      <p>Mes réservations</p>
       <% if @reservations.any? %>
         <% @reservations.each do |r| %>
           <div class="card mb-3">
@@ -46,8 +50,6 @@
                   <%= f.submit 'Mettre à jour', class: 'btn btn-ghost' %>
                 <% end %>
               <% end %>
-
-
             </div>
           </div>
         <% end %>

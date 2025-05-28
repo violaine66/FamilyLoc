@@ -47,4 +47,8 @@ class ReservationPolicy < ApplicationPolicy
    def update_statut?
     user.admin?
   end
+
+  def calendar?
+    user.present?
+  end
 end

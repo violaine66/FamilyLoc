@@ -1,0 +1,19 @@
+<h1>Calendrier des réservations</h1>
+
+
+<%= month_calendar(year: @year, month: @month) do |date| %>
+  <div style="border: 1px solid #ccc; padding: 5px; min-height: 80px;">
+    <strong><%= date.day %></strong>
+
+    <% reservations_du_jour = @reservations.select do |res|
+         res.date_debut <= date && res.date_fin >= date
+       end %>
+
+    <% reservations_du_jour.each do |reservation| %>
+      <div style="background-color: #a7d8f7; margin-top: 4px; padding: 4px; border-radius: 4px;">
+        <%= reservation.propriete.nom %><br>
+        Réservé par <%= reservation.user.nom_complet %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
