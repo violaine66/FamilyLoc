@@ -63,7 +63,7 @@ gem 'rack-attack'
 gem 'simple_calendar'
 
 
-
+gem 'rails-i18n'
 
 
 group :development, :test do

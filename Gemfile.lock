@@ -374,6 +374,7 @@ DEPENDENCIES
   pundit
   rack-attack
   rails (~> 7.1.5, >= 7.1.5.1)
+  rails-i18n
   sassc-rails
   selenium-webdriver
   simple_calendar
