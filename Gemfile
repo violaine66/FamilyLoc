@@ -60,6 +60,8 @@ gem "pg_search"
 # In your Gemfile
 
 gem 'rack-attack'
+gem 'simple_calendar'
+
 
 
 
