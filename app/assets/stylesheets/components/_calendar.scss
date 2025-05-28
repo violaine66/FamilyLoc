@@ -1,0 +1,41 @@
+.table.simple-calendar {
+  table-layout: fixed;   /* forcer largeur égale des colonnes */
+  width: 100%;
+  max-width: 900px;      /* largeur max du calendrier */
+  margin: auto;          /* centrer la table */
+  border-collapse: collapse;
+}
+
+.table.simple-calendar th,
+.table.simple-calendar td {
+  border: 1px solid #ccc;
+  padding: 5px;
+  height: 150px;          /* hauteur fixe pour toutes les cases */
+  vertical-align: top;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  max-width: 128px;       /* limite la largeur max par case */
+  width: 14.28%;          /* 100% / 7 jours pour répartir uniformément */
+  box-sizing: border-box; /* inclure padding/border dans largeur */
+}
+
+.table.simple-calendar .day {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.reservation-block {
+  background-color: #a7d8f7;
+  margin-top: 4px;
+  padding: 3px;
+  border-radius: 4px;
+  font-size: 8px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+tr> td.day {
+  width:80px;
+}

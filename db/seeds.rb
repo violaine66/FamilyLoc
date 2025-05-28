@@ -41,17 +41,17 @@ puts "Utilisateur créé "
 puts "Creating properties..."
 Propriete.create!(
   nom: "Hendaye, appartement du haut",
-  adresse: "Hendaye, France"
+  adresse: "Hendaye, haut"
 )
 
 Propriete.create!(
   nom: "Hendaye, appartement du bas",
-  adresse: "Hendaye, France"
+  adresse: "Hendaye, bas"
 )
 
 Propriete.create!(
   nom: "Préchac",
-  adresse: "Préchac, France"
+  adresse: "Préchac"
 )
 
 puts "Propriétés créées"

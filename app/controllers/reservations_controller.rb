@@ -78,11 +78,16 @@ class ReservationsController < ApplicationController
     end
   end
 
-  def calendar
-    authorize Reservation, :calendar?
-     @reservations = Reservation.includes(:user, :propriete).where(statut: 'confirmée')
+ def calendar
+   @year = params[:year]&.to_i || Date.today.year
+  @month = params[:month]&.to_i || Date.today.month
 
-  end
+  @reservations = Reservation.includes(:user, :propriete)
+                             .where(statut: 'confirmée')
+
+  authorize Reservation
+end
+
 
   private
   def reservation_params
