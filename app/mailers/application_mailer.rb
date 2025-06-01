@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-   default from: '8e5a83001@smtp-brevo.com'
+    default from: ENV['USERNAME']
 
   layout "mailer"
 end

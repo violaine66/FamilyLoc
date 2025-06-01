@@ -1,6 +1,5 @@
 class UserMailer < ApplicationMailer
-   default from: '8e5a83001@smtp-brevo.com'
-
+    default from: ENV['USERNAME']
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:

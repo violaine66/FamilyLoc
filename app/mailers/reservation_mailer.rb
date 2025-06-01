@@ -1,5 +1,5 @@
 class ReservationMailer < ApplicationMailer
-  default from: '8e5a83001@smtp-brevo.com'
+   default from: ENV['USERNAME']
 
 
   def reservation_request_email
@@ -18,7 +18,7 @@ class ReservationMailer < ApplicationMailer
     @user = @reservation.user
 
       mail(
-      to: ['8e5a83001@smtp-brevo.com', ENV['ADMIN2']],
+      to: [ENV['ADMIN1'], ENV['ADMIN2']],
       subject: "Nouvelle demande de réservation"
     )
 
