@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-   default from: ENV.fetch('MAIL_FROM', 'FamilyLoc <8e5a83001@smtp-brevo.com>')
+   default from: '8e5a83001@smtp-brevo.com'
 
 
   # Subject can be set in your I18n file at config/locales/en.yml
