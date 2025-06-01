@@ -80,7 +80,7 @@ Rails.application.configure do
     address:              "smtp-relay.brevo.com",
     port:                 587,
     domain:               'family-loc.store',
-    user_name:            ENV['USERNAME'],
+    user_name:            '8e5a83001@smtp-brevo.com',
     password:             ENV['PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true
