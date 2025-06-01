@@ -28,7 +28,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fall back to assets pipeline if a precompiled asset is missed.
-  
+
   config.assets.compile = true
   config.public_file_server.enabled = true
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
@@ -77,15 +77,15 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-    address:              "smtp.gmail.com",
+    address:              "smtp-relay.brevo.com",
     port:                 587,
-    domain:               'family-loc.store',
+    domain:               'gmail.com',
     user_name:            ENV['GMAIL_ADDRESS'],
-    password:             ENV['GMAIL_APP_PASSWORD'],
-    authentication:       :plain,
+    password:             ENV['PASSWORD'],
+    authentication:       'login',
     enable_starttls_auto: true
   }
-config.action_mailer.default_url_options = { host: 'www.family-loc.store', protocol: 'https' }
+  config.action_mailer.default_url_options = { host: 'www.family-loc.store', protocol: 'https' }
 
   config.action_mailer.default_url_options = { host: "www.family-loc.store" }
 

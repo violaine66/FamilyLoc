@@ -6,4 +6,3 @@ class AdminMailer < ApplicationMailer
     mail(to: [ENV['GMAIL_ADDRESS'],  ENV['ADMIN2']], subject: "Rappel réservation dans 7 jours")
   end
 end
-
