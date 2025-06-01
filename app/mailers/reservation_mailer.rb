@@ -1,5 +1,5 @@
 class ReservationMailer < ApplicationMailer
-  default from: from: '8e5a83001@smtp-brevo.com'
+  default from: '8e5a83001@smtp-brevo.com'
 
 
   def reservation_request_email
