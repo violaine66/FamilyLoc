@@ -1,9 +1,9 @@
 class AdminMailer < ApplicationMailer
-    default from: ENV['USERNAME']
+    default from: ENV['GMAIL_ADDRESS']
 
 
   def reservation_reminder
     @reservation = params[:reservation]
-    mail(to: [ENV['ADMIN1'],  ENV['ADMIN2']], subject: "Rappel réservation dans 7 jours")
+    mail(to: [ENV['GMAIL_ADDRESS'],  ENV['ADMIN2']], subject: "Rappel réservation dans 7 jours")
   end
 end
