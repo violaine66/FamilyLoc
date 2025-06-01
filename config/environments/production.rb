@@ -79,7 +79,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              "smtp-relay.brevo.com",
     port:                 587,
-    domain:               'family-loc.store'
+    domain:               'family-loc.store',
     user_name:            ENV['GMAIL_ADDRESS'],
     password:             ENV['PASSWORD'],
     authentication:       'login',
