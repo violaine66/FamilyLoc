@@ -79,7 +79,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              "smtp-relay.brevo.com",
     port:                 587,
-    domain:               'gmail.com',
+    domain:               'family-loc.store'
     user_name:            ENV['GMAIL_ADDRESS'],
     password:             ENV['PASSWORD'],
     authentication:       'login',
@@ -87,7 +87,7 @@ Rails.application.configure do
   }
   config.action_mailer.default_url_options = { host: 'www.family-loc.store', protocol: 'https' }
 
-  config.action_mailer.default_url_options = { host: "www.family-loc.store" }
+
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
