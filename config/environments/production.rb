@@ -82,7 +82,7 @@ Rails.application.configure do
     domain:               'family-loc.store',
     user_name:            ENV['USERNAME'],
     password:             ENV['PASSWORD'],
-    authentication:       'login',
+    authentication:       'plain',
     enable_starttls_auto: true
   }
   config.action_mailer.default_url_options = { host: 'www.family-loc.store', protocol: 'https' }
