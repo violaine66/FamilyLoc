@@ -1,5 +1,6 @@
 class ReservationMailer < ApplicationMailer
-  default from:  ENV['USERNAME']
+  default from: ENV.fetch('MAIL_FROM', 'FamilyLoc <8e5a83001@smtp-brevo.com>')
+
 
   def reservation_request_email
     @reservation = params[:reservation]

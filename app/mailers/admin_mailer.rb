@@ -1,5 +1,6 @@
 class AdminMailer < ApplicationMailer
-    default from: ENV.fetch('MAIL_FROM', 'FamilyLoc <vhsoulas@gmail.com>')
+    default from: ENV.fetch('MAIL_FROM', 'FamilyLoc <8e5a83001@smtp-brevo.com>')
+
 
   def reservation_reminder
     @reservation = params[:reservation]
