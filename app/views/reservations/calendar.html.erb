@@ -15,7 +15,7 @@
 
             <% reservations_du_jour.each do |reservation| %>
               <div class="reservation-block">
-                <strong><%= reservation.propriete.nom %></strong><br>
+                <strong><%= reservation.propriete.adresse %></strong><br>
                 <%= reservation.user.nom_complet %>
               </div>
             <% end %>
