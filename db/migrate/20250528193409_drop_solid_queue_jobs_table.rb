@@ -1,10 +1,6 @@
-class DropSolidQueueJobsTable < ActiveRecord::Migration[6.0]
-  def up
-    execute "DROP TABLE solid_queue_jobs CASCADE"
 
-  end
-
-  def down
-    # Optionnel : recréer la table si rollback
+class DropSolidQueueJobsTable < ActiveRecord::Migration[7.1]
+  def change
+    drop_table :solid_queue_jobs, if_exists: true
   end
 end
