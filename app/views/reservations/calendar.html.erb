@@ -1,26 +1,30 @@
 <%= render "shared/navbar"%>
-<div class="d-flex justify-content-center ">
-  <h3 class="btn-ghost" style="width=300px;">Calendrier des réservations</h3>
-</div>
-<div class="calendar-container d-flex justify-content-center">
-  <%= month_calendar(year: @year, month: @month) do |date| %>
-    <div class="day text-center"><%= date.day %></div>
+<div class="container mt-3 ">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-md-8">
+      <h3 class="btn-ghost" style="width=300px;">Calendrier des réservations</h3>
+        <div class="calendar-container d-flex justify-content-center">
+          <%= month_calendar(year: @year, month: @month) do |date| %>
+            <div class="day text-center"><%= date.day %></div>
 
 
-      <% reservations_du_jour = @reservations.select do |res|
-         res.date_debut <= date && res.date_fin >= date
-       end %>
+              <% reservations_du_jour = @reservations.select do |res|
+                res.date_debut <= date && res.date_fin >= date
+              end %>
 
 
-    <% reservations_du_jour.each do |reservation| %>
-      <div class="reservation-block">
-        <strong><%= reservation.propriete.nom %></strong><br>
-        <%= reservation.user.nom_complet %>
-      </div>
-    <% end %>
-  <% end %>
+            <% reservations_du_jour.each do |reservation| %>
+              <div class="reservation-block">
+                <strong><%= reservation.propriete.nom %></strong><br>
+                <%= reservation.user.nom_complet %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
 
-</div>
- <div class="d-flex justify-content-center mt-3">
+    </div>
+  </div>
+  <div class="d-flex justify-content-center mt-3">
     <%= link_to "Retour", reservations_path, class:"text-decoration-none text-dark" %>
   </div>
+</div>
