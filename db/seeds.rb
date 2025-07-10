@@ -26,13 +26,12 @@ User.create!(
   admin: true
 )
 
-# User.create!(
-#   email: ENV["MAIL_B_S"],
-#   nom_complet: "Bernard Soulas",
-#   password: "family",
-#   password_confirmation: "family",
-#   admin: false
-# )
+User.create!(
+  email: ENV["MAIL_B_S"],
+  nom_complet: "Bernard Soulas",
+  password: ENV['PASSWORD_USERS'],
+  admin: false
+)
 
 
 puts "Utilisateur créé "
