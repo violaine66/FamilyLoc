@@ -14,19 +14,25 @@ Propriete.destroy_all
 puts "Creating users..."
 User.create!(
   email:  ENV['ADMIN2'],
-  nom_complet: "Violaine Soulas",
-  password: "loulou",
-  password_confirmation: "loulou",
+  nom_complet: ENV['NOM_COMPLET_ADMIN2'],
+  password: ENV['PASSWORD_ADMIN2'],
   admin: true
 )
 
 User.create!(
   email: ENV["GMAIL_ADDRESS"],
-  nom_complet: "Jordi Soulas",
-  password: "family",
-  password_confirmation: "family",
+  nom_complet: ENV['NOM_COMPLET_ADMIN1'],
+  password: ENV['PASSWORD_ADMIN1'],
   admin: true
 )
+
+# User.create!(
+#   email: ENV["MAIL_B_S"],
+#   nom_complet: "Bernard Soulas",
+#   password: "family",
+#   password_confirmation: "family",
+#   admin: false
+# )
 
 
 puts "Utilisateur créé "
