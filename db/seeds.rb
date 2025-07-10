@@ -27,8 +27,57 @@ User.create!(
 )
 
 User.create!(
-  email: ENV["MAIL_B_S"],
+  email: ENV["MAIL_BER_S"],
   nom_complet: "Bernard Soulas",
+  password: ENV['PASSWORD_USERS'],
+  admin: false
+)
+
+User.create!(
+  email: ENV["MAIL_C_M"],
+  nom_complet: "Claude Soulas",
+  password: ENV['PASSWORD_USERS'],
+  admin: false
+)
+
+User.create!(
+  email: ENV["MAIL_AL_S"],
+  nom_complet: "Anne-Laure Soulas",
+  password: ENV['PASSWORD_USERS'],
+  admin: false
+)
+
+User.create!(
+  email: ENV["MAIL_S_S"],
+  nom_complet: "Stéphanie Soulas",
+  password: ENV['PASSWORD_USERS'],
+  admin: false
+)
+
+User.create!(
+  email: ENV["MAIL_CL_S"],
+  nom_complet: "Claude Soulas",
+  password: ENV['PASSWORD_USERS'],
+  admin: false
+)
+
+User.create!(
+  email: ENV["MAIL_CA_S"],
+  nom_complet: "Camille Soulas",
+  password: ENV['PASSWORD_USERS'],
+  admin: false
+)
+
+User.create!(
+  email: ENV["MAIL_BA_S"],
+  nom_complet: "Baptiste Soulas",
+  password: ENV['PASSWORD_USERS'],
+  admin: false
+)
+
+User.create!(
+  email: ENV["MAIL_T_S"],
+  nom_complet: "Thomas Soulas",
   password: ENV['PASSWORD_USERS'],
   admin: false
 )
