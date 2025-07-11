@@ -27,11 +27,18 @@
   opacity: 1;
   border-bottom: 3px solid #555555;
 }
+
+#navbarDropdown {
+   color: #C0C1C2;
+  }
+
+  #navbarDropdown:hover {
+   color: black;
+  }
 @media (max-width: 725px) {
   .tabs-underlined li {
     text-align: center;
-
-     padding:0px;
+    padding:0px;
     margin: 0px;
     font-size: 12px
   }
@@ -42,5 +49,15 @@
     word-break: normal;         /* ne casse pas les mots */
     overflow-wrap: break-word;  /* coupe uniquement entre les mots */
     text-align: center;
+  }
+
+  #navbarDropdown {
+   display: inline-block;      /* ou block si tu veux tout centrer */
+    white-space: normal;        /* autorise les retours à la ligne */
+    word-break: normal;         /* ne casse pas les mots */
+    overflow-wrap: break-word;  /* coupe uniquement entre les mots */
+    text-align: center;
+    font-size: 10px;
+    margin-top: 6px;
   }
 }
