@@ -13,6 +13,9 @@
       <li>
         <%= link_to "Réservations", reservations_path, class: "text-dark tab-underlined #{'active' if current_page?(reservations_path)}" %>
       </li>
+      <li>
+        <%= link_to "Modifier mon mot de passe", edit_user_registration_path %>
+      </li>
       <% if current_user.admin? %>
         <li>
           <%= link_to "Tableau de bord", admin_reservations_path, class: "text-dark tab-underlined #{'active' if current_page?(admin_reservations_path)}" %>
