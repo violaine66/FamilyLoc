@@ -28,6 +28,9 @@
   border-bottom: 3px solid #555555;
 }
 
+.dropdown-toggle {
+  border: none;
+}
 #navbarDropdown {
    color: #C0C1C2;
   }
@@ -57,7 +60,8 @@
     word-break: normal;         /* ne casse pas les mots */
     overflow-wrap: break-word;  /* coupe uniquement entre les mots */
     text-align: center;
-    font-size: 10px;
-    margin-top: 6px;
+    font-size: 11px;
+    margin-top: 5px;
   }
 }
+
