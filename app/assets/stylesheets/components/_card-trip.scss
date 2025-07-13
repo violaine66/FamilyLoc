@@ -23,6 +23,9 @@
   margin: 0;
 }
 
+#haut {
+  font-size: 16px;
+}
 
 .card-trip .card-trip-infos {
   padding: 16px;
@@ -45,8 +48,6 @@
   background-position: cover;
   background-repeat: no-repeat;
   background-size: cover;
-
-
   object-fit: cover;
 }
 .full-width-img {
@@ -76,4 +77,8 @@
   align-items: center;
   justify-content: space-between;
   height: 60px; /* Même hauteur pour tous */
+}
+
+.card-title {
+  font-size: 18px;
 }
