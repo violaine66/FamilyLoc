@@ -1,7 +1,7 @@
 
  <%= render "shared/navbar" %><div class="container">
   <div class="row justify-content-center">
-    <h5 class="text-center my-4"><strong id="user_nom">Bonjour <%= current_user.nom_complet %> !</strong> </h5>
+    <h5 class="text-center mb-4 mt-2"><strong id="user_nom">Bonjour <%= current_user.nom_complet %> !</strong> </h5>
     <% @proprietes.each do |p| %>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
         <%= link_to propriete_path(p), class: "text-decoration-none text-reset w-100", style: "max-width: 20rem;" do %>
