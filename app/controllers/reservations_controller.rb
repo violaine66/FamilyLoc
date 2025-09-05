@@ -43,6 +43,20 @@ class ReservationsController < ApplicationController
     authorize @reservation
   end
 
+  def update
+  @reservation = Reservation.find(params[:id])
+  @propriete = @reservation.propriete
+  authorize @reservation
+
+  if @reservation.update(reservation_params)
+    redirect_to propriete_path(@propriete), notice: "La réservation a bien été modifiée ✅"
+  else
+    render :edit, status: :unprocessable_entity
+  end
+end
+
+
+
   def destroy
     @reservation = Reservation.find(params[:id])
     authorize @reservation
@@ -77,15 +91,15 @@ class ReservationsController < ApplicationController
     end
   end
 
- def calendar
-   @year = params[:year]&.to_i || Date.today.year
-  @month = params[:month]&.to_i || Date.today.month
+  def calendar
+    @year = params[:year]&.to_i || Date.today.year
+    @month = params[:month]&.to_i || Date.today.month
 
-  @reservations = Reservation.includes(:user, :propriete)
-                             .where(statut: 'confirmée')
+    @reservations = Reservation.includes(:user, :propriete)
+                              .where(statut: 'confirmée')
 
-  authorize Reservation
-end
+    authorize Reservation
+  end
 
 
   private
