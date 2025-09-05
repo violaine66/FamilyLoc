@@ -3,6 +3,8 @@
 <p>pour: <%= @reservation.propriete.nom %></p>
 <p>du <%= @reservation.date_debut.strftime("%d/%m/%Y") %> au <%=@reservation.date_fin.strftime("%d/%m/%Y")%> </p>
 
+<%= image_tag asset_url("logo.png"), alt: "logo" %>
+
 
 <p>Merci d’utiliser Family Loc !</p>
 <p>https://www.family-loc.store/</p>
