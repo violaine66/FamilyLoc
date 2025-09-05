@@ -36,12 +36,17 @@ class Reservation < ApplicationRecord
   end
 
     # Validation pour vérifier les chevauchements avec des réservations existantes
-   def no_overlap_with_existing_reservations
+  def no_overlap_with_existing_reservations
     if new_record?
-    conflicting_reservations = propriete.reservations.where('date_debut < ? AND date_fin > ?', date_fin, date_debut).exists?
-    errors.add(:base, "Les dates choisies sont déjà réservées") if conflicting_reservations
+      conflicting_reservations = propriete.reservations
+        .where.not(statut: "annulée") # Ignorer les annulées
+        .where('date_debut < ? AND date_fin > ?', date_fin, date_debut)
+        .exists?
+
+      errors.add(:base, "Les dates choisies sont déjà réservées") if conflicting_reservations
     end
   end
+
 
   def self.send_admin_reminders
     Rails.logger.info "[Scheduler] send_admin_reminders démarré à #{Time.current}"
