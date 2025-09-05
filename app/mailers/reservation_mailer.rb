@@ -35,4 +35,15 @@ class ReservationMailer < ApplicationMailer
     )
   end
 
+  def reservation_cancellation_by_user
+    @reservation = params[:reservation]
+    @propriete = @reservation.propriete
+    @user = @reservation.user
+
+    mail(
+      to: [@user.email, ENV['GMAIL_ADDRESS'], ENV['ADMIN2']],
+      subject: "Annulation de votre réservation"
+    )
+  end
+
 end

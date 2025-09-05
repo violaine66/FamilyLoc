@@ -36,32 +36,34 @@ class ReservationsController < ApplicationController
     end
   end
 
-  def edit
-    @reservation = Reservation.find(params[:id])
-    @propriete = @reservation.propriete
-    @reservation.user = current_user
-    authorize @reservation
-  end
+#   def edit
+#     @reservation = Reservation.find(params[:id])
+#     @propriete = @reservation.propriete
+#     @reservation.user = current_user
+#     authorize @reservation
+#   end
 
-  def update
-  @reservation = Reservation.find(params[:id])
-  @propriete = @reservation.propriete
-  authorize @reservation
+#   def update
+#   @reservation = Reservation.find(params[:id])
+#   @propriete = @reservation.propriete
+#   authorize @reservation
 
-  if @reservation.update(reservation_params)
-    redirect_to propriete_path(@propriete), notice: "La réservation a bien été modifiée ✅"
-  else
-    render :edit, status: :unprocessable_entity
-  end
-end
+#   if @reservation.update(reservation_params)
+#     redirect_to propriete_path(@propriete), notice: "La réservation a bien été modifiée ✅"
+#   else
+#     render :edit, status: :unprocessable_entity
+#   end
+# end
 
 
 
   def destroy
     @reservation = Reservation.find(params[:id])
     authorize @reservation
-    @reservation.destroy
+    if @reservation.destroy
+        ReservationMailer.with(reservation: @reservation).reservation_cancellation_by_user.deliver_now
     redirect_to reservations_path, notice: 'La réservation a été annulée avec succès.'
+    end
   end
 
   def update_statut
