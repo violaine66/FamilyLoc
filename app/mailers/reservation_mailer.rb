@@ -8,7 +8,7 @@ class ReservationMailer < ApplicationMailer
     @user = @reservation.user
     mail(
       to: @user.email,
-      subject: "Votre demande de réservation a été bien été envoyée et est en attente de validation"
+      subject: "Votre demande de réservation a bien été envoyée et est en attente de validation"
     )
   end
 
