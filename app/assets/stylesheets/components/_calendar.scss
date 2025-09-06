@@ -15,15 +15,15 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
-  max-width: 128px;       /* limite la largeur max par case */
-  width: 14.28%;          /* 100% / 7 jours pour répartir uniformément */
+  max-width: 120px;       /* limite la largeur max par case */
+  width: 120px;          /* 100% / 7 jours pour répartir uniformément */
   box-sizing: border-box; /* inclure padding/border dans largeur */
 }
 
 .table.table-striped {
-
   padding: 10px;
 }
+
 .table.simple-calendar .day {
   font-weight: bold;
   margin-bottom: 5px;
@@ -34,11 +34,12 @@
   margin-top: 4px;
   padding: 3px;
   border-radius: 4px;
-  font-size: 6px;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  hyphens: auto;
+  font-size: 6px;           /* tu peux ajuster */
+  white-space: normal;       /* autorise retour à la ligne */
+  overflow-wrap: anywhere;   /* casse uniquement aux espaces si nécessaire */
+  word-break: normal;        /* ne coupe pas les mots en plein milieu */
 }
+
 
 tr> td.day {
   width:80px;
