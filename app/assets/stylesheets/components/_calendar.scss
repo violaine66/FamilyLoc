@@ -10,6 +10,7 @@
 .table.simple-calendar td {
   width: 120px;
   max-width: 120px;
+  height: 70px;
   box-sizing: border-box;
   padding: 5px;
   vertical-align: top;
@@ -27,16 +28,20 @@
 }
 
 .reservation-block {
-  max-width: 100%;  /* ne dépassera jamais la cellule */
+  max-width: 100px;  /* ne dépassera pas la cellule */
   box-sizing: border-box;
   background-color: #a7d8f7;
   margin-top: 4px;
-  padding: 3px;
+  padding: 0px;
   border-radius: 4px;
   font-size: 6px;
-  white-space: normal;
-  overflow-wrap: normal;
-  word-break: normal;
+
+  /* Nouveau : s'adapte à la cellule */
+  display: block;
+  max-height: 100%;   /* ne dépassera pas la cellule */
+  overflow: hidden;   /* texte caché si trop long */
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 
