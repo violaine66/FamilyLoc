@@ -40,8 +40,9 @@
   display: block;
   max-height: 100%;   /* ne dépassera pas la cellule */
   overflow: hidden;   /* texte caché si trop long */
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;   /* permet le retour à la ligne */
+  word-wrap: break-word; /* coupe les mots trop longs si besoin */
+  overflow-wrap: break-word;
 }
 
 
