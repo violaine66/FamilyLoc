@@ -8,8 +8,10 @@
 
 .table.simple-calendar th,
 .table.simple-calendar td {
-  width: 120px;
-  max-width: 120px;
+  width: 100px;
+  max-width: 100px;
+  min-width: 100px;
+
   height: 70px;
   box-sizing: border-box;
   padding: 5px;
@@ -28,6 +30,7 @@
 }
 
 .reservation-block {
+  width: 100%;      /* occupe toute la cellule */
   max-width: 100px;  /* ne dépassera pas la cellule */
   box-sizing: border-box;
   background-color: #a7d8f7;
