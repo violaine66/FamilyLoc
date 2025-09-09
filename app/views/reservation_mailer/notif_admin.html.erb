@@ -1,7 +1,8 @@
+<h1>Demande de réservation</h1>
 <p>Une demande de reservation a été faite par :
 <p><%= @reservation.user.email %></p>
-<p>pour: <%= @reservation.propriete.nom %></p>
-<p>du <%= @reservation.date_debut.strftime("%d/%m/%Y") %> au <%=@reservation.date_fin.strftime("%d/%m/%Y")%> </p>
+<p>pour: <strong><%= @reservation.propriete.nom %></strong></p>
+<p><strong>du <%= @reservation.date_debut.strftime("%d/%m/%Y") %> au <%= @reservation.date_fin.strftime("%d/%m/%Y") %></strong></p>
 
 <%= image_tag "https://www.family-loc.store/images/logo.png", alt: "Logo Family Loc" %>
 
