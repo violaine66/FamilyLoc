@@ -29,7 +29,7 @@ export default class extends Controller {
     }));
 
     // Initialiser Flatpickr sur tous les inputs type text du form
-    flatpickr(this.element.querySelectorAll("input[type='text']"), {
+    flatpickr(this.element.querySelectorAll("input[name*='date']"), {
       minDate: "today",
       altInput: true,
       locale: FRENCH_LOCALE,
