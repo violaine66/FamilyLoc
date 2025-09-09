@@ -16,7 +16,12 @@
             <% reservations_du_jour.each do |reservation| %>
               <div class="reservation-block">
                 <strong><%= reservation.propriete.adresse %></strong><br>
+              <% if current_user.admin?%>
+                <%= reservation.nom %>
+              <% else %>
                 <%= reservation.user.nom_complet %>
+              <% end %>
+
               </div>
             <% end %>
           <% end %>

@@ -106,6 +106,6 @@ class ReservationsController < ApplicationController
 
   private
   def reservation_params
-    params.require(:reservation).permit(:date_debut, :date_fin, :number_of_guests)
+    params.require(:reservation).permit(:date_debut, :date_fin, :nom)
   end
 end
