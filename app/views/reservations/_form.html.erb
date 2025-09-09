@@ -10,7 +10,7 @@
         <%= simple_form_for [@propriete, @reservation] do |f| %>
 
           <% if current_user.admin?%>
-            <%= f.input :nom, label: "Nom de la personne pour laquelle la réservation est faite" %>
+            <%= f.input :nom, label: "Prénom et nom de la personne pour laquelle la réservation est faite" %>
           <% end %>
 
 
