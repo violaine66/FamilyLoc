@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-    default from: ENV['ZOHO_USERNAME']
+    default from: ENV['user_name'] # contact@family-loc.store
 
   layout "mailer"
 end
