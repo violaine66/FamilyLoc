@@ -1,9 +1,9 @@
 class AdminMailer < ApplicationMailer
-    default from: ENV['GMAIL_ADDRESS']
+    default from: ENV['ZOHO_USERNAME']
 
 
   def reservation_reminder
     @reservation = params[:reservation]
-    mail(to: [ENV['GMAIL_ADDRESS'],  ENV['ADMIN2']], subject: "Rappel réservation dans 7 jours")
+    mail(to: ENV['ZOHO_USERNAME'], subject: "Rappel réservation dans 7 jours")
   end
 end

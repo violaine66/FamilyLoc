@@ -21,7 +21,7 @@ User.create!(
 )
 
 User.create!(
-  email: ENV["GMAIL_ADDRESS"],
+  email: ENV["ADMIN1"],
   nom_complet: ENV['NOM_COMPLET_ADMIN1'],
   password: ENV['PASSWORD_ADMIN1'],
   password_confirmation: ENV['PASSWORD_ADMIN1'],
