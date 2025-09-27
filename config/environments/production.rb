@@ -92,8 +92,8 @@ Rails.application.configure do
   address: 'smtp.zoho.com',
   port: 587,
   domain: 'family-loc.store',
-  user_name: ENV['ZOHO_USERNAME'], # contact@family-loc.store
-  password: ENV['ZOHO_PASSWORD'], # mot de passe Zoho
+  user_name: ENV['user_name'], # contact@family-loc.store
+  password: ENV['password'], # mot de passe Zoho
   authentication: :login,
   enable_starttls_auto: true
   }
