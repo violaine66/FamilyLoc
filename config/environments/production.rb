@@ -15,8 +15,5 @@ config.action_mailer.smtp_settings = {
 
 config.action_mailer.default_url_options = { host: 'www.family-loc.store', protocol: 'https' }
 
-ActionMailer::Base.smtp_settings = config.action_mailer.smtp_settings
-ActionMailer::Base.delivery_method = :smtp
-Devise::Mailer.smtp_settings = config.action_mailer.smtp_settings
 
 end
