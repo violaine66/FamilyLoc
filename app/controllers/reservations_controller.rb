@@ -67,38 +67,25 @@ class ReservationsController < ApplicationController
   end
 
   def update_statut
-    @reservation = Reservation.find(params[:id])
-    authorize @reservation, :update_statut?
+  @reservation = Reservation.find(params[:id])
+  authorize @reservation, :update_statut?
 
-
-    if @reservation.update(statut: params[:reservation][:statut])  # Récupérer le statut du formulaire
-       ReservationMailer.with(reservation: @reservation).reservation_confirmation_update.deliver_now
-
-       # On renvoie ici les nouvelles dates réservées valides
-      booked_dates = Reservation.where.not(statut: "annulée").flat_map do |res|
-        (res.date_debut..res.date_fin).map(&:to_s)
-      end
-
-      render json: {
-      success: true,
-      statut: @reservation.statut,
-      message: 'Le statut de la réservation a été mis à jour avec succès.',
-      booked_dates: booked_dates
-    }, status: :ok
+    if @reservation.update(statut: params[:reservation][:statut])
+      ReservationMailer.with(reservation: @reservation).reservation_confirmation_update.deliver_now
+      redirect_to reservations_path, notice: "Le statut a été mis à jour avec succès."
     else
-      render json: {
-        success: false,
-        errors: @reservation.errors.full_messages
-      }, status: :unprocessable_entity
+      redirect_to reservations_path, alert: @reservation.errors.full_messages.join(", ")
     end
   end
+
+
+
+
 
   def calendar
     @year = params[:year]&.to_i || Date.today.year
     @month = params[:month]&.to_i || Date.today.month
-
-    @reservations = Reservation.includes(:user, :propriete)
-                              .where(statut: 'confirmée')
+    @reservations = Reservation.where(statut: 'confirmée')
 
     authorize Reservation
   end
