@@ -1,5 +1,5 @@
 class ReservationMailer < ApplicationMailer
-   default from: ENV['user_name'] #
+   default from: ENV['USERNAME']
 
 
   def reservation_request_email
@@ -18,7 +18,7 @@ class ReservationMailer < ApplicationMailer
     @user = @reservation.user
 
       mail(
-      to: ENV['user_name'],
+      to: ENV['USERNAME'],
       subject: "Nouvelle demande de réservation"
     )
 
@@ -41,7 +41,7 @@ class ReservationMailer < ApplicationMailer
     @user = @reservation.user
 
     mail(
-      to: @user.email, cc: ENV['user_name'],
+      to: @user.email, cc: ENV['USERNAME'],
       subject: "Annulation de votre réservation"
     )
   end
