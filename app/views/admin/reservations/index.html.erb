@@ -32,8 +32,14 @@
               <% @reservations.each do |r| %>
                 <tr>
                   <td>
-                    <p class="mb-0 fw-bold"><%= r.user.nom_complet %></p>
-                    <p class="mb-0 text-muted"><%= r.user.email %></p>
+                    <% if current_user.admin? %>
+                      <p class="mb-0 fw-bold"><%= r.user.nom_complet %></p>
+                      <p class="mb-0 fw-bold"> pour <%= r.nom %></p>
+                      <p class="mb-0 text-muted"><%= r.user.email %></p>
+                    <% else %>
+                      <p class="mb-0 fw-bold"><%= r.user.nom_complet %></p>
+                      <p class="mb-0 text-muted"><%= r.user.email %></p>
+                    <% end %>
                   </td>
                   <td><%= r.propriete.nom %></td>
                   <td>Du <%= r.date_debut.strftime("%d/%m/%Y") %> au <%= r.date_fin.strftime("%d/%m/%Y") %></td>

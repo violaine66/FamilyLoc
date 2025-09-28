@@ -12,10 +12,10 @@
           <div class="card mb-3">
             <div class="card-body">
               <div class="d-flex justify-content-between">
-                <% current_user.admin? %>
-                  <div><strong><p><%= image_tag "person.png"%> <%= r.user.nom_complet %> pour <%= r.propriete.nom %></p></strong></div>
+                <% if current_user.admin? %>
+                <div><strong><p><%= image_tag "person.png"%> <%= r.user.nom_complet %> pour <%= r.nom %></p></strong></div>
                 <% else %>
-                  <div><strong><p><%= image_tag "person.png"%> <%= r.user.nom_complet %></p></strong>
+                  <div><strong><p><%= image_tag "person.png"%> <%= r.user.nom_complet %></p></strong></div>
                 <% end %>
                 <div class="edit-destroy d-flex justify-content-end">
                   <div>
