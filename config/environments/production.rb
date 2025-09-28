@@ -7,8 +7,8 @@ Rails.application.configure do
     address:              'smtp.zoho.com',
     port:                 587,
     domain:               'family-loc.store',
-    user_name:            ENV['user_name'],   # ⚠️ doit être bien défini sur Heroku
-    password:             ENV['password'],    # ⚠️ idem
+    user_name:            ENV['USERNAME'],   # ⚠️ doit être bien défini sur Heroku
+    password:             ENV['PASSWORD'],    # ⚠️ idem
     authentication:       :plain,
     enable_starttls_auto: true
   }
