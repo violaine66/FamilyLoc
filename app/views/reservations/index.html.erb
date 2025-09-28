@@ -12,7 +12,11 @@
           <div class="card mb-3">
             <div class="card-body">
               <div class="d-flex justify-content-between">
-                <div><strong><p><%= image_tag "person.png"%> <%= r.user.nom_complet %></p></strong></div>
+                <% current_user.admin? %>
+                  <div><strong><p><%= image_tag "person.png"%> <%= r.user.nom_complet %> pour <%= r.propriete.nom %></p></strong></div>
+                <% else %>
+                  <div><strong><p><%= image_tag "person.png"%> <%= r.user.nom_complet %></p></strong>
+                <% end %>
                 <div class="edit-destroy d-flex justify-content-end">
                   <div>
                     <%= link_to propriete_reservation_path(r.propriete, r), data: { turbo_method: :delete, turbo_confirm: "Es-tu sûr ?" } do %>

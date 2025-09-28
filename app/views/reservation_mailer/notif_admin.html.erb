@@ -1,6 +1,6 @@
 <h1>Demande de réservation</h1>
 <p>Une demande de reservation a été faite par :
-<p><%= @reservation.user.email %></p>
+<p><%= @reservation.user.email %> pour <%= @reservation.nom %></p>
 <p>pour: <strong><%= @reservation.propriete.nom %></strong></p>
 <p><strong>du <%= @reservation.date_debut.strftime("%d/%m/%Y") %> au <%= @reservation.date_fin.strftime("%d/%m/%Y") %></strong></p>
 
