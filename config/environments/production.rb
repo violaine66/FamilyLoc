@@ -1,19 +1,30 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-config.action_mailer.delivery_method = :smtp
+  # === MAILER (Zoho) ===
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.zoho.com',
+    port:                 587,
+    domain:               'family-loc.store',
+    user_name:            ENV['user_name'],   # ⚠️ doit être bien défini sur Heroku
+    password:             ENV['password'],    # ⚠️ idem
+    authentication:       :login,
+    enable_starttls_auto: true
+  }
+  config.action_mailer.default_url_options = { host: 'www.family-loc.store', protocol: 'https' }
 
-config.action_mailer.smtp_settings = {
-  address:              'smtp.zoho.com',
-  port:                 587,
-  domain:               'family-loc.store',
-  user_name:            ENV.fetch('user_name'), # lèvera une erreur si la variable n'existe pas
-  password:             ENV.fetch('password'),  # idem
-  authentication:       :login,
-  enable_starttls_auto: true
-}
+  # === DEBUG / LOGS ===
+  config.consider_all_requests_local = true   # pour voir les erreurs détaillées
+  config.logger = Logger.new($stdout)         # logs envoyés à stdout (Heroku les capte)
+  config.log_level = :debug                   # niveau de log le plus bavard
+  config.active_record.verbose_query_logs = true
 
-config.action_mailer.default_url_options = { host: 'www.family-loc.store', protocol: 'https' }
+  # === CACHE & STATIC FILES ===
+  config.action_controller.perform_caching = false
+  config.cache_store = :null_store
+  config.public_file_server.enabled = true
 
-
+  # === EAGER LOAD ===
+  config.eager_load = true
 end
