@@ -23,8 +23,8 @@
      <% if current_user.admin == false %>
         <li class="nav-item dropdown">
           <a
-            class="tab-underlined <%= 'active' if current_page?(admin_reservations_path) %>"
-        
+            class="tab-underlined text-dark <%= 'active' if current_page?(admin_reservations_path) %>"
+
             id="navbarDropdown"
             role="button"
             data-bs-toggle="dropdown"
