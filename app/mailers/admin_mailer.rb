@@ -1,6 +1,6 @@
 class AdminMailer < ApplicationMailer
   # expéditeur par défaut
-  default from: ENV['ADMIN1'] || 'no-reply@family-loc.store'
+  default from: ENV['ADMIN1']
 
   def reservation_reminder
     @reservation = params[:reservation]
