@@ -18,7 +18,7 @@ class ReservationMailer < ApplicationMailer
     @user = @reservation.user
 
       mail(
-      to: ENV['ADMIN1'], cc: ENV['ADMIN2'],
+      to: ENV['ADMIN1'], cc: ENV['ADMIN2']
       subject: "Nouvelle demande de réservation"
     )
 
@@ -41,7 +41,7 @@ class ReservationMailer < ApplicationMailer
     @user = @reservation.user
 
     mail(
-      to: @user.email, cc: ENV['ADMIN1'], ENV['ADMIN2'],
+      to: @user.email, cc: ENV['ADMIN1'], ENV['ADMIN2']
       subject: "Annulation de votre réservation"
     )
   end
