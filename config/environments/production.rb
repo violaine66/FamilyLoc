@@ -64,7 +64,7 @@ Rails.application.configure do
   # information to avoid inadvertent exposure of personally identifiable information (PII). If you
   # want to log everything, set the level to "debug".
   config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info")
-  config.mailer_sender =  ENV['ADMIN1'], cc: ENV['ADMIN2']
+  config.mailer_sender =  ENV['ADMIN1'], ENV['ADMIN2']
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -81,7 +81,7 @@ Rails.application.configure do
     address:              "smtp.gmail.com",
     port:                 587,
     domain:               'family-loc.store',
-    user_name:            ENV['ADMIN1'], cc: ENV['ADMIN2'],
+    user_name:            ENV['ADMIN1'], ENV['ADMIN2'],
     password:             ENV['GMAIL_APP_PASSWORD'],
     authentication:       :plain,
     enable_starttls_auto: true
