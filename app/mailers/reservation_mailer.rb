@@ -1,5 +1,5 @@
 class ReservationMailer < ApplicationMailer
-   default from: ENV['ADMIN1'], cc: ENV['ADMIN2']
+   default from: ENV['ADMIN1']
 
 
   def reservation_request_email
@@ -17,12 +17,13 @@ class ReservationMailer < ApplicationMailer
     @propriete = @reservation.propriete
     @user = @reservation.user
 
-      mail(
-      to: ENV['ADMIN1'], cc: ENV['ADMIN2']
+    mail(
+      to: ENV['ADMIN1'],
+      cc: ENV['ADMIN2'],
       subject: "Nouvelle demande de réservation"
     )
-
   end
+
 
   def reservation_confirmation_update
     @reservation = params[:reservation]
@@ -41,9 +42,11 @@ class ReservationMailer < ApplicationMailer
     @user = @reservation.user
 
     mail(
-      to: @user.email, cc: ENV['ADMIN1'], ENV['ADMIN2']
+      to: @user.email,
+      cc: [ENV['ADMIN1'], ENV['ADMIN2']],
       subject: "Annulation de votre réservation"
     )
   end
+
 
 end

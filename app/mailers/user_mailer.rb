@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-    default from: ENV['ADMIN1'], cc: ENV['ADMIN2']
+    default from: ENV['ADMIN1']
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
