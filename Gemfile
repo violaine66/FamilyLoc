@@ -64,6 +64,11 @@ gem 'ostruct'
 gem 'rack-attack'
 gem 'simple_calendar'
 
+gem 'caxlsx'
+gem 'prawn'
+gem 'prawn-table'
+
+
 
 gem 'rails-i18n'
 
