@@ -42,10 +42,8 @@ class Admin::ExportsController < ApplicationController
 
   def authenticate_admin!
     allowed_roles = ["admin"]
-    unless allowed_roles.include?(current_user&.role)
+    unless allowed_roles.include?(current_user&.admin? ? "admin" : "user")
       redirect_to root_path, alert: "Accès réservé aux administrateurs."
     end
   end
 end
-
-

@@ -59,15 +59,15 @@
 #   password_confirmation: ENV['PASSWORD_USERS'],
 #   admin: false
 # )
-User.find_by(email: ENV["MAIL_CL_S"])&.destroy
+# User.find_by(email: ENV["MAIL_CL_S"])&.destroy
 
-User.create!(
-  email: ENV["MAIL_CL_S"],
-  nom_complet:ENV['NOM_COMPLET_CL_S'],
-  password: ENV['PASSWORD_USERS'],
-  password_confirmation: ENV['PASSWORD_USERS'],
-  admin: false
-)
+# User.create!(
+#   email: ENV["MAIL_CL_S"],
+#   nom_complet:ENV['NOM_COMPLET_CL_S'],
+#   password: ENV['PASSWORD_USERS'],
+#   password_confirmation: ENV['PASSWORD_USERS'],
+#   admin: false
+# )
 
 # User.create!(
 #   email: ENV["MAIL_CA_S"],
