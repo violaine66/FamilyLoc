@@ -51,4 +51,8 @@ class ReservationPolicy < ApplicationPolicy
   def calendar?
     user.present?
   end
+
+    def export?
+    user.admin?  # ou ta logique d'autorisation
+  end
 end

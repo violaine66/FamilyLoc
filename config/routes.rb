@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   namespace :admin do
-    resources :reservations, only: [:index, :show, :destroy]
-    resources :exports, only: [:index] do
-      collection do
-        get :reservations
-      end
+  resources :reservations, only: [:index, :show, :destroy]
+
+  resources :exports do
+    collection do
+      get :reservations
     end
   end
-  
+end
+
   devise_for :users
   root to: "pages#home"
   if Rails.env.development?

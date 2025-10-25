@@ -1,15 +1,23 @@
 class Admin::ExportsController < ApplicationController
   before_action :authenticate_admin!
+  skip_after_action :verify_policy_scoped, only: :index
 
   def index
+      authorize :export, :index?
+
   end
 
-  def attendances
+  def reservations
     start_date = params[:start_date].presence || 1.month.ago.to_date
     end_date = params[:end_date].presence || Date.today
+
+    
     format = params[:format_export] || 'csv' # csv par défaut
 
-    service =ReservationsExportService.new(start_date: start_date, end_date: end_date)
+
+      authorize Reservation, :export?  # <--- ligne à ajouter
+
+    service = ReservationsExportService.new(start_date: start_date, end_date: end_date)
 
     case format
     when 'csv'

@@ -3,8 +3,9 @@
   <div class="d-flex justify-content-start  align-items-center mb-4">
    <i class="fa-solid fa-calendar-days me-2" id="font-calendar"></i> <%= link_to " Consulter le calendrier des réservations", calendar_reservations_path, class: "btn btn-home" %>
   </div>
-
-
+<% if current_user.admin? %>
+  <p><%= link_to "Exporter des données", admin_exports_path, class:"dropdown-item text-dark"%></p>
+<% end %>
   <div class="row d-flex justify-content-center">
     <div class="col-sm-8 col-md-6 col-lg-6 mx-auto">
       <% if @reservations.any? %>
