@@ -85,13 +85,13 @@ User.create!(
 #   admin: false
 # )
 
-# User.create!(
-#   email: ENV["MAIL_T_S"],
-#   nom_complet: ENV['NOM_COMPLET_T_S'],
-#   password: ENV['PASSWORD_USERS'],
-#   password_confirmation: ENV['PASSWORD_USERS'],
-#   admin: false
-# )
+User.create!(
+  email: ENV["MAIL_T_S"],
+  nom_complet: ENV['NOM_COMPLET_T_S'],
+  password: ENV['PASSWORD_USERS'],
+  password_confirmation: ENV['PASSWORD_USERS'],
+  admin: false
+)
 
 # User.create!(
 #   email: ENV["MAIL_JP_S"],
