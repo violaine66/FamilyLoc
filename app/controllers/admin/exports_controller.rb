@@ -8,10 +8,11 @@ class Admin::ExportsController < ApplicationController
   end
 
   def reservations
+    authorize Reservation, :export?
     start_date = params[:start_date].presence || 1.month.ago.to_date
     end_date = params[:end_date].presence || Date.today
 
-    
+
     format = params[:format_export] || 'csv' # csv par défaut
 
 
