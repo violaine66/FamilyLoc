@@ -52,10 +52,13 @@ end
 
   private
 
- def reservations
-    @reservations ||= Reservation
-                        .where(date_debut: @start_date..@end_date)
-                        .includes(:propriete, :user) # <- précharge les associations
-  end
+def reservations
+  start = Date.parse(@start_date.to_s) rescue nil
+  finish = Date.parse(@end_date.to_s) rescue nil
+
+  scope = Reservation.includes(:propriete, :user)
+  scope = scope.where(date_debut: start..finish) if start && finish
+  scope
+end
 
 end
