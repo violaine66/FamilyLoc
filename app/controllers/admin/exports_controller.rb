@@ -3,41 +3,37 @@ class Admin::ExportsController < ApplicationController
   skip_after_action :verify_policy_scoped, only: :index
 
   def index
-      authorize :export, :index?
-
+    authorize :export, :index?
   end
 
   def reservations
     authorize Reservation, :export?
-    start_date = params[:start_date].presence || 1.month.ago.to_date
-    end_date = params[:end_date].presence || Date.today
 
+    # 🟢 Correction : correspond aux champs du formulaire
+    start_date = params[:date_debut].presence || 1.month.ago.to_date
+    end_date   = params[:date_fin].presence || Date.today
+    format     = params[:format_export] || 'pdf'
 
-    format = params[:format_export] || 'csv' # csv par défaut
-
-
-      authorize Reservation, :export?  # <--- ligne à ajouter
-
-    service = ReservationsExportService.new(start_date: start_date, end_date: end_date)
+    service = ReservationsExportService.new(
+      start_date: start_date,
+      end_date: end_date
+    )
 
     case format
     when 'csv'
-      csv_data = service.generate_csv
-      send_data csv_data,
+      send_data service.generate_csv,
         filename: "etat_reservations_#{start_date}_#{end_date}.csv",
         type: 'text/csv',
         disposition: 'attachment'
 
     when 'xlsx'
-      xlsx_data = service.generate_xlsx
-      send_data xlsx_data,
+      send_data service.generate_xlsx,
         filename: "etat_reservations_#{start_date}_#{end_date}.xlsx",
         type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
         disposition: 'attachment'
 
     when 'pdf'
-      pdf_data = service.generate_pdf
-      send_data pdf_data,
+      send_data service.generate_pdf,
         filename: "etat_reservations_#{start_date}_#{end_date}.pdf",
         type: 'application/pdf',
         disposition: 'attachment'
@@ -50,8 +46,7 @@ class Admin::ExportsController < ApplicationController
   private
 
   def authenticate_admin!
-    allowed_roles = ["admin"]
-    unless allowed_roles.include?(current_user&.admin? ? "admin" : "user")
+    unless current_user&.admin?
       redirect_to root_path, alert: "Accès réservé aux administrateurs."
     end
   end
