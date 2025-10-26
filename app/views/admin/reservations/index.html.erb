@@ -2,13 +2,15 @@
 
 <div class="container-fluid">
   <div class="row justify-content-center py-4">
-    <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+     <div class="col-8 col-md-6 d-flex align-items-center" id="telechargement-data">
       <% if current_user.admin? %>
-        <%= link_to "Exporter des données", admin_exports_path, class:"dropdown-item text-dark" %>
+        <i class="fa-solid fa-file-arrow-down me-2"></i>
+        <%= link_to "Télécharger les données", admin_exports_path, class:"btn btn-home text-white" %>
       <% end %>
     </div>
+  </div>
 
-
+  <div class="row justify-content-center py-4">
     <div class="col-12 col-md-6 ">
       <%= form_with url: admin_reservations_path, method: :get, local: true, class: "d-flex mb-4" do %>
         <%= text_field_tag :query, params[:query], class: "form-control me-2", onclick: "this.value=''" %>

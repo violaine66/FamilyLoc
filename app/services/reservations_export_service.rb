@@ -54,7 +54,7 @@ class ReservationsExportService
       pdf.move_down 20
 
       # Données du tableau
-      data = [["Nom de la propriété", "Nom complet de l'utilisateur", "Date début", "Date fin"]]
+      data = [["Nom de la propriété", "Nom de l'utilisateur", "Date début", "Date fin"]]
       reservations.each do |r|
         data << [
           r.propriete.nom,
