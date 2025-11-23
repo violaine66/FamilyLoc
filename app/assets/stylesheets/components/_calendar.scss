@@ -87,3 +87,20 @@ nav > a {
   font-size: 14px;
   color: inherit;
 }
+
+.calendar-container {
+  overflow-x: auto;   /* scroll horizontal si nécessaire */
+  width: 100%;
+}
+
+.table.simple-calendar {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.reservation-block {
+  white-space: normal;
+  word-break: break-word;
+  max-height: 40px;  /* reste uniforme */
+  overflow: hidden;
+}
